@@ -78,6 +78,17 @@ def shop_privp():
     return render_template('shop-privacy-policy.html')
 
 
+@app.route('/prod-l-w')
+def shop_prod_w():
+    return render_template('shop-product-list-women.html')
+
+
+@app.route('/prod-l-k')
+def shop_prod_k():
+    return render_template('shop-product-list-kids.html')
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=8089)
 
