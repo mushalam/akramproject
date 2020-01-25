@@ -15,7 +15,6 @@ app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD3436
 
 @app.route('/')
 def shop_main():
-    'C:\Users\tzboril\PycharmProjects\akrameverywhere2\scarfshop\templates\shop-index.html'
     return render_template('shop-index.html')
 
 
