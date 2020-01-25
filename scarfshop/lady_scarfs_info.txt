@@ -1,0 +1,52 @@
+Ladies scarfs dummy info:
+
+Corresponds to file names in scarf image folder (lady_scarfs). 
+
+- scarf01;
+	productID: #1000008
+	productName: flowerGreen
+	price: £15.99
+	quantity: 10 pcs 
+	type: ladies
+	
+- scarf02;
+	productID: #1000009
+	productName: waveyBlue
+	price: £16.89
+	quantity: 6 pcs
+	type: ladies
+
+- scarf03;
+	productID: #10000010
+	productName: lightRed
+	price: £17.59
+	quantity: 3 pcs
+	type: ladies
+
+- scarf04;
+	productID: #10000011
+	productName:whiteFlower
+	price: £21.49
+	quantity: 9 pcs
+	type: ladies
+
+- scarf05;
+	productID: #10000012
+	productName: exoticFlower
+	price: £19.69
+	quantity: 10 pcs
+	type: ladies
+
+- scarf06;
+	productID: #10000013
+	productName: flashPink
+	price: £23.89
+	quantity: 12 pcs
+	type: ladies
+
+- scarf07;
+	productID: #10000014
+	productName: neonPink
+	price: £20.99
+	quantity: 5 pcs
+	type: ladies
