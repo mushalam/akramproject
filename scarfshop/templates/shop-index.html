@@ -66,7 +66,6 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 
 <!-- Body BEGIN -->
 <body class="ecommerce">
-    <!-- BEGIN STYLE CUSTOMIZER -->    <!-- END BEGIN STYLE CUSTOMIZER --> 
 
     <!-- BEGIN TOP BAR -->
     <div class="pre-header">
@@ -75,21 +74,28 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><span>&nbsp;</span></li>
-                      <!-- BEGIN CURRENCIES -->
-                        <!-- END LANGS -->
                     </ul>
                 </div>
                 <!-- END TOP BAR LEFT PART -->
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="{{ url_for('shop_about') }}">About</a></li>
+                        {% if session['logged_in'] == True %}
+                            <li><a href="{{ url_for('shop_about') }}">About</a></li>
+                        {%  endif %}
+
                         <li><a href="{{ url_for('shop_contacts') }}">Contact us</a></li>
                         <li><a href="{{ url_for('shop_faq') }}">Help</a></li>
-						<li><a href="{{ url_for('shop_account') }}">My Account</a></li>
+
+                        {% if session['logged_in'] == True %}
+					    	<li><a href="{{ url_for('shop_account') }}">My Account</a></li>
+                        {%  endif %}
+
                         <li><a href="{{ url_for('shop_cart') }}">Cart</a></li>
-                        <li><a href="{{ url_for('shop_checkout') }}">Log In</a></li>
+
+                        {% if session['logged_in'] != True %}
+                            <li><a href="{{ url_for('shop_checkout') }}">Log In</a></li>
+                        {%  endif %}
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
@@ -369,17 +375,10 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
     </div>
     <!-- END SLIDER -->
 
-    <!-- BEGIN BRANDS -->    <!-- END BRANDS -->
-
-    <!-- BEGIN STEPS -->    <!-- END STEPS -->
-
     <!-- BEGIN PRE-FOOTER -->
     <div class="pre-footer">
       <div class="container">
         <div class="row">
-          <!-- BEGIN BOTTOM ABOUT BLOCK -->          <!-- END BOTTOM ABOUT BLOCK -->
-          <!-- BEGIN BOTTOM INFO BLOCK -->          <!-- END INFO BLOCK -->
-
           <!-- BEGIN BOTTOM CONTACTS -->
           <div class="col-md-3 col-sm-6 pre-footer-col">
             <h2>Our Contacts</h2>
