@@ -48,11 +48,6 @@ def shop_wishlist():
     return render_template('shop-wishlist.html')
 
 
-@app.route('/p-login')
-def page_login():
-    return render_template('page-login.html')
-
-
 @app.route('/cart')
 def shop_cart():
     return render_template('shop-shopping-cart.html')
