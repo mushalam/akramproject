@@ -372,7 +372,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ url_for('shop_main') }}">Home</a></li>
             <li><a href="">Pages</a></li>
             <li class="active">Contact</li>
         </ul>
@@ -381,22 +381,18 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
           <!-- BEGIN SIDEBAR -->
           <div class="sidebar col-md-3 col-sm-3">
             <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> {{ url_for('page_login') }}/Register</a></li>
+              <li class="list-group-item clearfix"><a href="{{ url_for('page_login') }}"><i class="fa fa-angle-right"></i> Register</a></li>
+			  
               <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> FORGOT Password</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
+              <li class="list-group-item clearfix"><a href="{{ url_for('shop_account') }}"><i class="fa fa-angle-right"></i> My account</a></li>
+			  
             </ul>
 
             <h2>Our Contacts</h2>
             <address>
               Tomas Zboril : 1618157@brunel.ac.uk Akash Thayil : 1517117@brunel.ac.uk Mushfiq Ankur : 1644337@brunel.ac.uk Thomas Lunde : 1731809@brunel.ac.uk Tarek Ahmed : 1616214@brunel.ac.uk<br>
             </address>
-<ul class="social-icons margin-bottom-10">
-          <li><a href="javascript:;" data-original-title="facebook" class="facebook"></a></li>
-              <li><a href="javascript:;" data-original-title="github" class="github"></a></li>
-              <li><a href="javascript:;" data-original-title="Goole Plus" class="googleplus"></a></li>
-              <li><a href="javascript:;" data-original-title="linkedin" class="linkedin"></a></li>
-              <li><a href="javascript:;" data-original-title="rss" class="rss"></a></li>
-            </ul>
+
           </div>
           <!-- END SIDEBAR -->
 

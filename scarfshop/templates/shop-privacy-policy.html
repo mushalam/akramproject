@@ -399,8 +399,8 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="">Store</a></li>
+            <li><a href="{{ url_for('shop_main') }}">Home</a></li>
+            
             <li class="active">Privacy Policy</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
@@ -408,9 +408,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
           <!-- BEGIN SIDEBAR -->
           <div class="sidebar col-md-3 col-sm-3">
             <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> {{ url_for('page_login') }}/Register</a></li>
+              <li class="list-group-item clearfix"><a href="{{ url_for('page_login') }}"><i class="fa fa-angle-right"></i> Register</a></li>
               <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
+              <li class="list-group-item clearfix"><a href="{{ url_for('shop_account') }}"><i class="fa fa-angle-right"></i> My account</a></li>
               <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
             </ul>
           </div>
