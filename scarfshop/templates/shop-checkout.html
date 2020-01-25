@@ -289,16 +289,21 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <p>I am a returning customer.</p>
                       <form role="form" action="#">
                         <div class="form-group">
-                          <label for="email-{{ url_for('shop_checkout') }}">E-Mail</label>
-                          <input type="text" id="email-{{ url_for('shop_checkout') }}" class="form-control">
+                          <label for="email-login">Username</label>
+                          <input placeholder="Username" type="text" id="email-login" class="form-control" name="username" value="{{ request.form.username }}">
                         </div>
                         <div class="form-group">
-                          <label for="password-{{ url_for('shop_checkout') }}">Password</label>
-                          <input type="password" id="password-{{ url_for('shop_checkout') }}" class="form-control">
+                          <label for="password-login">Password</label>
+                          <input placeholder="Password" type="password" id="password-login" class="form-control" name="password" value="{{ request.form.password }}">
                         </div>
                         <a href="javascript:;">Forgotten Password?</a>
                         <div class="padding-top-20">                  
-                          <button class="btn btn-primary" type="submit">{{ url_for('shop_checkout') }}</button>
+                          <button class="btn btn-primary" type="submit" value="Login">Login</button>
+                        </div>
+                        <div class="padding-top-20">
+                            {% if error %}
+                                <p class="error"><strong>Error:</strong>{{ error }}</p>
+                            {% endif %}
                         </div>
                         <hr>
                         

@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
 
-
+# Routes #
 @app.route('/')
 def shop_main():
     return render_template('shop-index.html')
@@ -32,11 +32,11 @@ def shop_product_list():
 def shop_contacts():
     return render_template('shop-contacts.html')
 
-
-@app.route('/checkout')
-def shop_checkout():
-    return render_template('shop-checkout.html')
-
+#
+# @app.route('/checkout')
+# def shop_checkout():
+#     return render_template('shop-checkout.html')
+#
 
 @app.route('/account')
 def shop_account():
@@ -81,6 +81,53 @@ def shop_prod_w():
 @app.route('/prod-l-k')
 def shop_prod_k():
     return render_template('shop-product-list-Kids.html')
+# End of routes #
+
+
+# Decorators #
+def login_required(func):
+    @wraps(func)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return func(*args, **kwargs)
+        else:
+            return redirect(url_for('login'))
+    return wrap
+# End of decorators #
+
+
+# Login, logout, and registration #
+@app.route('/checkout', methods=['GET', 'POST'])
+def shop_checkout():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'password':
+            error = 'Invalid credential. Please, try again.'
+        else:
+            session['logged_in'] = True
+            return redirect(url_for('data'))
+    return render_template('shop-checkout.html', error=error)
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    session.pop('logged_in', None)
+    session.clear()
+    return redirect(url_for('shop_main'))
+
+
+@app.route('/registration')
+def registration():
+    return render_template('registration.html')
+
+
+
+# End of login and registration #
+
+
+
+
 
 
 
