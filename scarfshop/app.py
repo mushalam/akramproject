@@ -15,67 +15,68 @@ app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD3436
 
 @app.route('/')
 def shop_main():
-    return render_template('scarfshop/templates/shop-index.html')
+    'C:\Users\tzboril\PycharmProjects\akrameverywhere2\scarfshop\templates\shop-index.html'
+    return render_template('shop-index.html')
 
 
 @app.route('/item')
 def shop_item():
-    return render_template('scarfshop/templates/shop-item.html')
+    return render_template('shop-item.html')
 
 
 @app.route('/product-list')
 def shop_product_list():
-    return render_template('scarfshop/templates/shop-product-list.html')
+    return render_template('shop-product-list.html')
 
 
 @app.route('/contacts')
 def shop_contacts():
-    return render_template('scarfshop/templates/shop-contacts.html')
+    return render_template('shop-contacts.html')
 
 
 @app.route('/checkout')
 def shop_checkout():
-    return render_template('scarfshop/templates/shop-checkout.html')
+    return render_template('shop-checkout.html')
 
 
 @app.route('/account')
 def shop_account():
-    return render_template('scarfshop/templates/shop-account.html')
+    return render_template('shop-account.html')
 
 
 @app.route('/wishlist')
 def shop_wishlist():
-    return render_template('scarfshop/templates/shop-wishlist.html')
+    return render_template('shop-wishlist.html')
 
 
 @app.route('/p-login')
 def page_login():
-    return render_template('scarfshop/templates/page-login.html')
+    return render_template('page-login.html')
 
 
 @app.route('/cart')
 def shop_cart():
-    return render_template('scarfshop/templates/shop-shopping-cart.html')
+    return render_template('shop-shopping-cart.html')
 
 
 @app.route('/faq')
 def shop_faq():
-    return render_template('scarfshop/templates/shop-faq.html')
+    return render_template('shop-faq.html')
 
 
 @app.route('/about')
 def shop_about():
-    return render_template('scarfshop/templates/shop-about.html')
+    return render_template('shop-about.html')
 
 
 @app.route('/tc')
 def shop_tc():
-    return render_template('scarfshop/templates/shop-contacts.html')
+    return render_template('shop-contacts.html')
 
 
 @app.route('/privp')
 def shop_privp():
-    return render_template('scarfshop/templates/shop-privacy-policy.html')
+    return render_template('shop-privacy-policy.html')
 
 
 if __name__ == '__main__':
