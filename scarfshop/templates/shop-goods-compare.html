@@ -83,13 +83,13 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN TOP BAR MENU -->
                <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="shop-About.html">About</a></li>
+                        <li><a href="{{ url_for('shop_about') }}">About</a></li>
                         
-                        <li><a href="shop-faq.html">Help</a></li>
-<li><a href="shop-account.html">My Account</a></li>
+                        <li><a href="{{ url_for('shop_faq') }}">Help</a></li>
+<li><a href="{{ url_for('shop_account') }}">My Account</a></li>
                         
-                        <li><a href="shop-checkout.html">Cart</a></li>
-                        <li><a href="page-login.html">Log In</a></li>
+                        <li><a href="{{ url_for('shop_checkout') }}">Cart</a></li>
+                        <li><a href="{{ url_for('page_login') }}">Log In</a></li>
                     </ul>
               </div>
                 <!-- END TOP BAR MENU -->
@@ -101,7 +101,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-        <a class="site-logo" href="shop-index.html"><img src="static/corporate/img/logos/150logo.jpg" alt="AkramsScarfs"></a>
+        <a class="site-logo" href="{{ url_for('shop_main') }}"><img src="static/corporate/img/logos/150logo.jpg" alt="AkramsScarfs"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -117,65 +117,65 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
             <div class="top-cart-content">
               <ul class="scroller" style="height: 250px;">
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
               </ul>
               <div class="text-right">
-                <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
-                <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
+                <a href="{{ url_for('shop_cart') }}" class="btn btn-default">View Cart</a>
+                <a href="{{ url_for('shop_checkout') }}" class="btn btn-primary">Checkout</a>
               </div>
             </div>
           </div>            
@@ -188,25 +188,25 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
             <li class="dropdown"> <!-- BEGIN DROPDOWN MENU -->
               <ul class="dropdown-menu">
                 <li class="dropdown-submenu">
-                  <a href="shop-product-list.html">Hi Tops <i class="fa fa-angle-right"></i></a>
+                  <a href="{{ url_for('shop_product_list') }}">Hi Tops <i class="fa fa-angle-right"></i></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="shop-product-list.html">Second Level Link</a></li>
-                    <li><a href="shop-product-list.html">Second Level Link</a></li>
+                    <li><a href="{{ url_for('shop_product_list') }}">Second Level Link</a></li>
+                    <li><a href="{{ url_for('shop_product_list') }}">Second Level Link</a></li>
                     <li class="dropdown-submenu">
                       <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                         Second Level Link 
                         <i class="fa fa-angle-right"></i>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                        <li><a href="{{ url_for('shop_product_list') }}">Third Level Link</a></li>
+                        <li><a href="{{ url_for('shop_product_list') }}">Third Level Link</a></li>
+                        <li><a href="{{ url_for('shop_product_list') }}">Third Level Link</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="shop-product-list.html">Running Shoes</a></li>
-                <li><a href="shop-product-list.html">Jackets and Coats</a></li>
+                <li><a href="{{ url_for('shop_product_list') }}">Running Shoes</a></li>
+                <li><a href="{{ url_for('shop_product_list') }}">Jackets and Coats</a></li>
               </ul>
               <!-- END DROPDOWN MENU -->
             </li>
@@ -218,50 +218,50 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <div class="col-md-4 header-navigation-col">
                         <h4>Footwear</h4>
                         <ul>
-                          <li><a href="shop-product-list.html">Astro Trainers</a></li>
-                          <li><a href="shop-product-list.html">Basketball Shoes</a></li>
-                          <li><a href="shop-product-list.html">Boots</a></li>
-                          <li><a href="shop-product-list.html">Canvas Shoes</a></li>
-                          <li><a href="shop-product-list.html">Football Boots</a></li>
-                          <li><a href="shop-product-list.html">Golf Shoes</a></li>
-                          <li><a href="shop-product-list.html">Hi Tops</a></li>
-                          <li><a href="shop-product-list.html">Indoor and Court Trainers</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Astro Trainers</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Basketball Shoes</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Boots</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Canvas Shoes</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Football Boots</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Golf Shoes</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Hi Tops</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Indoor and Court Trainers</a></li>
                         </ul>
                       </div>
                       <div class="col-md-4 header-navigation-col">
                         <h4>Clothing</h4>
                         <ul>
-                          <li><a href="shop-product-list.html">Base Layer</a></li>
-                          <li><a href="shop-product-list.html">Character</a></li>
-                          <li><a href="shop-product-list.html">Chinos</a></li>
-                          <li><a href="shop-product-list.html">Combats</a></li>
-                          <li><a href="shop-product-list.html">Cricket Clothing</a></li>
-                          <li><a href="shop-product-list.html">Fleeces</a></li>
-                          <li><a href="shop-product-list.html">Gilets</a></li>
-                          <li><a href="shop-product-list.html">Golf Tops</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Base Layer</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Character</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Chinos</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Combats</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Cricket Clothing</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Fleeces</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Gilets</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Golf Tops</a></li>
                         </ul>
                       </div>
                       <div class="col-md-4 header-navigation-col">
                         <h4>Accessories</h4>
                         <ul>
-                          <li><a href="shop-product-list.html">Belts</a></li>
-                          <li><a href="shop-product-list.html">Caps</a></li>
-                          <li><a href="shop-product-list.html">Gloves, Hats and Scarves</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Belts</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Caps</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Gloves, Hats and Scarves</a></li>
                         </ul>
 
                         <h4>Clearance</h4>
                         <ul>
-                          <li><a href="shop-product-list.html">Jackets</a></li>
-                          <li><a href="shop-product-list.html">Bottoms</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Jackets</a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}">Bottoms</a></li>
                         </ul>
                       </div>
                       <div class="col-md-12 nav-brands">
                         <ul>
-                          <li><a href="shop-product-list.html"><img title="esprit" alt="esprit" src="static/pages/img/brands/esprit.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="gap" alt="gap" src="static/pages/img/brands/gap.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="next" alt="next" src="static/pages/img/brands/next.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="puma" alt="puma" src="static/pages/img/brands/puma.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="zara" alt="zara" src="static/pages/img/brands/zara.jpg"></a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}"><img title="esprit" alt="esprit" src="static/pages/img/brands/esprit.jpg"></a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}"><img title="gap" alt="gap" src="static/pages/img/brands/gap.jpg"></a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}"><img title="next" alt="next" src="static/pages/img/brands/next.jpg"></a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}"><img title="puma" alt="puma" src="static/pages/img/brands/puma.jpg"></a></li>
+                          <li><a href="{{ url_for('shop_product_list') }}"><img title="zara" alt="zara" src="static/pages/img/brands/zara.jpg"></a></li>
                         </ul>
                       </div>
                     </div>
@@ -269,9 +269,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 </li>
               </ul>
             </li>
-			  <li><a href="shop-item.html">Mens</a></li>
-			  <li><a href="shop-item.html">Womens</a></li>
-            <li><a href="shop-item.html">Kids</a></li>
+			  <li><a href="{{ url_for('shop_item') }}">Mens</a></li>
+			  <li><a href="{{ url_for('shop_item') }}">Womens</a></li>
+            <li><a href="{{ url_for('shop_item') }}">Kids</a></li>
             <li class="dropdown dropdown100 nav-catalogue">
 <ul class="dropdown-menu">
             <li>
@@ -280,9 +280,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="static/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
                           <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                         </div>
@@ -290,9 +290,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="static/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
                           <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                         </div>
@@ -300,9 +300,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="static/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
                           <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                         </div>
@@ -310,9 +310,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="static/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
-                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
                           <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                         </div>
@@ -324,23 +324,23 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
             </li>
             <li class="dropdown active">
 <ul class="dropdown-menu">
-            <li><a href="shop-index.html">Home Default</a></li>
+            <li><a href="{{ url_for('shop_main') }}">Home Default</a></li>
                 <li><a href="shop-index-header-fix.html">Home Header Fixed</a></li>
                 <li><a href="shop-index-light-footer.html">Home Light Footer</a></li>
-                <li><a href="shop-product-list.html">Product List</a></li>
+                <li><a href="{{ url_for('shop_product_list') }}">Product List</a></li>
                 <li><a href="shop-search-result.html">Search Result</a></li>
-                <li><a href="shop-item.html">Product Page</a></li>
+                <li><a href="{{ url_for('shop_item') }}">Product Page</a></li>
                 <li><a href="shop-shopping-cart-null.html">Shopping Cart (Null Cart)</a></li>
-                <li><a href="shop-shopping-cart.html">Shopping Cart</a></li>
-                <li><a href="shop-checkout.html">Checkout</a></li>
-                <li><a href="shop-about.html">About</a></li>
-                <li><a href="shop-contacts.html">Contacts</a></li>
-                <li><a href="shop-account.html">My account</a></li>
+                <li><a href="{{ url_for('shop_cart') }}">Shopping Cart</a></li>
+                <li><a href="{{ url_for('shop_checkout') }}">Checkout</a></li>
+                <li><a href="{{ url_for('shop_about') }}">About</a></li>
+                <li><a href="{{ url_for('shop_contacts') }}">Contacts</a></li>
+                <li><a href="{{ url_for('shop_account') }}">My account</a></li>
                 <li class="active"><a href="shop-goods-compare.html">Product Comparison</a></li>
                 <li><a href="shop-standart-forms.html">Standart Forms</a></li>
-                <li><a href="shop-faq.html">FAQ</a></li>
-                <li><a href="shop-privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="shop-terms-conditions-page.html">Terms &amp; Conditions</a></li>
+                <li><a href="{{ url_for('shop_faq') }}">FAQ</a></li>
+                <li><a href="{{ url_for('shop_privp') }}">Privacy Policy</a></li>
+                <li><a href="{{ url_for('shop_tc') }}">Terms &amp; Conditions</a></li>
               </ul>
             </li>
             
@@ -382,7 +382,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
           <!-- BEGIN SIDEBAR -->
           <div class="sidebar col-md-3 col-sm-5">
             <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Mens</a></li>
+              <li class="list-group-item clearfix"><a href="{{ url_for('shop_product_list') }}"><i class="fa fa-angle-right"></i> Mens</a></li>
               <li class="list-group-item clearfix"><a href="shop-product-list-women.html"><i class="fa fa-angle-right"></i> Womens</a></li>
               <li class="list-group-item clearfix"><a href="shop-product-list-Kids.html"><i class="fa fa-angle-right"></i> Kids</a></li>
             </ul>
@@ -567,7 +567,7 @@ Nostrud duis molestie at dolore.</p>
                         <input id="product-quantity2" type="text" value="1" readonly class="form-control input-sm">
                     </div>
                     <button class="btn btn-primary" type="submit">Add to cart</button>
-                    <a href="shop-item.html" class="btn btn-default">More details</a>
+                    <a href="{{ url_for('shop_item') }}" class="btn btn-default">More details</a>
                   </div>
                 </div>
 

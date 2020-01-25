@@ -84,13 +84,13 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="shop-About.html">About</a></li>
+                        <li><a href="{{ url_for('shop_about') }}">About</a></li>
                         
-                        <li><a href="shop-faq.html">Help</a></li>
-<li><a href="shop-account.html">My Account</a></li>
+                        <li><a href="{{ url_for('shop_faq') }}">Help</a></li>
+<li><a href="{{ url_for('shop_account') }}">My Account</a></li>
                         
-                        <li><a href="shop-checkout.html">Cart</a></li>
-                        <li><a href="page-login.html">Log In</a></li>
+                        <li><a href="{{ url_for('shop_checkout') }}">Cart</a></li>
+                        <li><a href="{{ url_for('page_login') }}">Log In</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
@@ -102,7 +102,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-        <a class="site-logo" href="shop-index.html"><img src="static/corporate/img/logos/150logo.jpg" alt="AkramsScarfs"></a>
+        <a class="site-logo" href="{{ url_for('shop_main') }}"><img src="static/corporate/img/logos/150logo.jpg" alt="AkramsScarfs"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -118,65 +118,65 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
             <div class="top-cart-content">
               <ul class="scroller" style="height: 250px;">
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
               </ul>
               <div class="text-right">
-                <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
-                <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
+                <a href="{{ url_for('shop_cart') }}" class="btn btn-default">View Cart</a>
+                <a href="{{ url_for('shop_checkout') }}" class="btn btn-primary">Checkout</a>
               </div>
             </div>
           </div>            
@@ -189,30 +189,30 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
             <li class="dropdown"> <!-- BEGIN DROPDOWN MENU -->
               <ul class="dropdown-menu">
                 <li class="dropdown-submenu">
-                  <a href="shop-product-list.html">Hi Tops <i class="fa fa-angle-right"></i></a>
+                  <a href="{{ url_for('shop_product_list') }}">Hi Tops <i class="fa fa-angle-right"></i></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="shop-product-list.html">Second Level Link</a></li>
-                    <li><a href="shop-product-list.html">Second Level Link</a></li>
+                    <li><a href="{{ url_for('shop_product_list') }}">Second Level Link</a></li>
+                    <li><a href="{{ url_for('shop_product_list') }}">Second Level Link</a></li>
                     <li class="dropdown-submenu">
                       <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                         Second Level Link 
                         <i class="fa fa-angle-right"></i>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
-                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                        <li><a href="{{ url_for('shop_product_list') }}">Third Level Link</a></li>
+                        <li><a href="{{ url_for('shop_product_list') }}">Third Level Link</a></li>
+                        <li><a href="{{ url_for('shop_product_list') }}">Third Level Link</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="shop-product-list.html">Running Shoes</a></li>
-                <li><a href="shop-product-list.html">Jackets and Coats</a></li>
+                <li><a href="{{ url_for('shop_product_list') }}">Running Shoes</a></li>
+                <li><a href="{{ url_for('shop_product_list') }}">Jackets and Coats</a></li>
               </ul>
               <!-- END DROPDOWN MENU -->
             </li>
-            <li><a href="shop-index.html">Home</a></li>
-            <li><a href="shop-product-list.html">Mens</a></li>
+            <li><a href="{{ url_for('shop_main') }}">Home</a></li>
+            <li><a href="{{ url_for('shop_product_list') }}">Mens</a></li>
 			  <li><a href="shop-product-list-women.html">Womens</a></li>
             <!-- BEGIN TOP SEARCH -->
             <li class="menu-search">
@@ -274,18 +274,18 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
             <div class="sidebar-products clearfix">
               <h2>Bestsellers</h2>
               <div class="item">
-                <a href="shop-item.html"><img src="static/pages/img/products/k1.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
+                <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/products/k1.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="{{ url_for('shop_item') }}">Some Shoes in Animal with Cut Out</a></h3>
                 <div class="price">$31.00</div>
               </div>
               <div class="item">
-                <a href="shop-item.html"><img src="static/pages/img/products/k4.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
+                <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/products/k4.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="{{ url_for('shop_item') }}">Some Shoes in Animal with Cut Out</a></h3>
                 <div class="price">$23.00</div>
               </div>
               <div class="item">
-                <a href="shop-item.html"><img src="static/pages/img/products/k3.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
+                <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/products/k3.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="{{ url_for('shop_item') }}">Some Shoes in Animal with Cut Out</a></h3>
                 <div class="price">$86.00</div>
               </div>
             </div>
@@ -337,7 +337,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -353,7 +353,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -369,7 +369,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress 2</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress 2</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -387,7 +387,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -403,7 +403,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
@@ -420,7 +420,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -438,7 +438,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -454,7 +454,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
@@ -470,7 +470,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <h3><a href="{{ url_for('shop_item') }}">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-sale"></div>
@@ -566,7 +566,7 @@ Nostrud duis molestie at dolore.</p>
                         <input id="product-quantity" type="text" value="1" readonly name="product-quantity" class="form-control input-sm">
                     </div>
                     <button class="btn btn-primary" type="submit">Add to cart</button>
-                    <a href="shop-item.html" class="btn btn-default">More details</a>
+                    <a href="{{ url_for('shop_item') }}" class="btn btn-default">More details</a>
                   </div>
                 </div>
 
