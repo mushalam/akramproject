@@ -1,0 +1,27 @@
+.carousel-slider .carousel-item-four {
+    background: url(/static/pages/img/shop-slider/slide1/bg.jpg);
+}
+
+.carousel-slider .carousel-item-five {
+    background: url(/static/pages/img/shop-slider/slide2/bg.jpg);
+}
+
+.carousel-slider .carousel-item-six {
+    background: url(/static/pages/img/shop-slider/slide3/bg.jpg);
+}
+
+.carousel-slider .carousel-item-seven {
+    background: url(/static/pages/img/shop-slider/slide4/bg.jpg);
+}
+
+.carousel-slider .carousel-item-eight {
+    background: url(/static/pages/img/frontend-slider/bg9.jpg);
+}
+
+.carousel-slider .carousel-item-nine {
+    background: url(/static/pages/img/frontend-slider/bg1.jpg);
+}
+
+.carousel-slider .carousel-item-ten {
+    background: url(/static/pages/img/frontend-slider/bg2.jpg);
+}
