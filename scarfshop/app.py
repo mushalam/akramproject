@@ -85,7 +85,7 @@ def shop_prod_w():
 
 @app.route('/prod-l-k')
 def shop_prod_k():
-    return render_template('shop-product-list-kids.html')
+    return render_template('shop-product-list-Kids.html')
 
 
 
