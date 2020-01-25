@@ -6,18 +6,11 @@ from datetime import datetime
 from functools import wraps
 
 from flask import Flask, render_template, request, url_for, redirect, session
-from flask_pymongo import PyMongo
 from jinja2 import Template
 
 app = Flask(__name__)
 
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
-
-
-
-
-
-
 
 
 @app.route('/')
@@ -87,6 +80,3 @@ def shop_privp():
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=8089)
-
-
-
