@@ -14,5 +14,5 @@ os.environ['MONGO_URI_USERS'] = 'mongodb://useradmin:Av136.356hP0x@192.168.0.30:
 os.environ['MONGO_URI_SENSORS'] = 'mongodb://useradmin:Av136.356hP0x@192.168.0.30:24916/iot_sensor_data'
 
 
-from scarfshop.app import app as application
+from app import app as application
 application.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343672'
