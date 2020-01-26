@@ -267,11 +267,12 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                           <label for="password-login">Password</label>
                           <input placeholder="Password" type="password" id="password-login" class="form-control" name="password" value="{{ request.form.password }}">
                         </div>
-                        <a href="javascript:;">Forgotten Password?</a>
-                        <div class="padding-top-20">                  
+                        <a href="{{ url_for('shop_pass_reset') }}">Forgotten Password?</a>
+                        <div class="padding-top-20">
                           <button class="btn btn-primary" type="submit" value="Login">Login</button>
                         </div>
-                        <div class="padding-top-20">
+
+                        <div>
                             {% if error %}
                                 <p class="error"><strong>Error:</strong>{{ error }}</p>
                             {% endif %}
