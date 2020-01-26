@@ -94,12 +94,22 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="{{ url_for('shop_about') }}">About</a></li>
+                        {% if session['logged_in'] == True %}
+                            <li><a href="{{ url_for('shop_about') }}">About</a></li>
+                        {%  endif %}
+
                         <li><a href="{{ url_for('shop_contacts') }}">Contact us</a></li>
                         <li><a href="{{ url_for('shop_faq') }}">Help</a></li>
-						<li><a href="{{ url_for('shop_account') }}">My Account</a></li>
+
+                        {% if session['logged_in'] == True %}
+					    	<li><a href="{{ url_for('shop_account') }}">My Account</a></li>
+                        {%  endif %}
+
                         <li><a href="{{ url_for('shop_cart') }}">Cart</a></li>
-                        <li><a href="{{ url_for('shop_checkout') }}">Log In</a></li>
+
+                        {% if session['logged_in'] != True %}
+                            <li><a href="{{ url_for('shop_checkout') }}">Log In</a></li>
+                        {%  endif %}
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->

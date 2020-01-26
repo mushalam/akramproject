@@ -1,16 +1,26 @@
 from __future__ import print_function
-
 import json
 import os
 from datetime import datetime
 from functools import wraps
-
 from flask import Flask, render_template, request, url_for, redirect, session
 from jinja2 import Template
 
 app = Flask(__name__)
-
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
+
+
+# Decorators #
+def login_required(func):
+    @wraps(func)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return func(*args, **kwargs)
+        else:
+            return redirect(url_for('login'))
+    return wrap
+# End of decorators #
+
 
 # Routes #
 @app.route('/')
@@ -38,6 +48,7 @@ def shop_contacts():
 #     return render_template('shop-checkout.html')
 #
 
+@login_required
 @app.route('/account')
 def shop_account():
     return render_template('shop-account.html')
@@ -82,18 +93,6 @@ def shop_prod_w():
 def shop_prod_k():
     return render_template('shop-product-list-Kids.html')
 # End of routes #
-
-
-# Decorators #
-def login_required(func):
-    @wraps(func)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return func(*args, **kwargs)
-        else:
-            return redirect(url_for('login'))
-    return wrap
-# End of decorators #
 
 
 # Login, logout, and registration #
