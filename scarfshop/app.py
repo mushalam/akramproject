@@ -86,7 +86,7 @@ def shop_prod_k():
 
 @app.route('/pass-reset')
 def shop_pass_reset():
-    return render_template('forgot -password.html')
+    return render_template('forgot-password.html')
 
 # End of routes #
 
