@@ -42,21 +42,11 @@ def shop_product_list():
 def shop_contacts():
     return render_template('shop-contacts.html')
 
-#
-# @app.route('/checkout')
-# def shop_checkout():
-#     return render_template('shop-checkout.html')
-#
 
 @login_required
 @app.route('/account')
 def shop_account():
     return render_template('shop-account.html')
-
-
-@app.route('/wishlist')
-def shop_wishlist():
-    return render_template('shop-wishlist.html')
 
 
 @app.route('/cart')

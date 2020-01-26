@@ -73,19 +73,6 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <!-- BEGIN CURRENCIES -->
-                        <li class="shop-currencies"> </li>
-                        <!-- END CURRENCIES -->
-                        <!-- BEGIN LANGS -->
-                        <li class="langs-block">
-                            <a href="javascript:void(0);" class="current">&nbsp; </a>
-                            <div class="langs-block-others-wrapper"><div class="langs-block-others">
-                              <a href="javascript:void(0);">French</a>
-                              <a href="javascript:void(0);">Germany</a>
-                              <a href="javascript:void(0);">Turkish</a>
-                            </div></div>
-                        </li>
-                        <!-- END LANGS -->
                     </ul>
                 </div>
                 <!-- END TOP BAR LEFT PART -->
@@ -148,6 +135,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
+
                 <li>
                   <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
@@ -162,34 +150,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
-                <li>
-                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
-                  <span class="cart-content-count">x 1</span>
-                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
-                  <em>$1230</em>
-                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-                </li>
-                <li>
-                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
-                  <span class="cart-content-count">x 1</span>
-                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
-                  <em>$1230</em>
-                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-                </li>
-                <li>
-                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
-                  <span class="cart-content-count">x 1</span>
-                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
-                  <em>$1230</em>
-                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-                </li>
-                <li>
-                  <a href="{{ url_for('shop_item') }}"><img src="static/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
-                  <span class="cart-content-count">x 1</span>
-                  <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
-                  <em>$1230</em>
-                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-                </li>
+
               </ul>
               <div class="text-right">
                 <a href="{{ url_for('shop_cart') }}" class="btn btn-default">View Cart</a>
@@ -228,9 +189,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
               </ul>
               <!-- END DROPDOWN MENU -->
             </li>
-			   <li><a href="{{ url_for('shop_item') }}">Mens</a></li>
-             <li><a href="{{ url_for('shop_item') }}">Womens</a></li>
-            <li><a href="{{ url_for('shop_item') }}">Kids</a></li>
+			   <li><a href="{{ url_for('shop_product_list') }}">Mens</a></li>
+             <li><a href="{{ url_for('shop_prod_w') }}">Womens</a></li>
+            <li><a href="{{ url_for('shop_prod_k') }}">Kids</a></li>
             <!-- BEGIN TOP SEARCH -->
             <li class="menu-search">
               <span class="sep"></span>
