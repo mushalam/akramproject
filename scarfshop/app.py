@@ -110,11 +110,11 @@ def shop_checkout():
 
     error = None
     if request.method == 'POST':
-        if request.form['username'] != users[0] or request.form['password'] != users[1]:
-            error = 'Invalid credential. Please, try again.'
-        else:
+        if request.form['username'] == users[0] and request.form['password'] == users[1]:
             session['logged_in'] = True
             return redirect(url_for('shop_main'))
+        else:
+            error = 'Invalid credential. Please, try again.'
     return render_template('shop-checkout.html', error=error)
 
 

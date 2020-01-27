@@ -17,18 +17,6 @@ def retrieve_users():
         cursor.execute(sql_select_Query)
         records = cursor.fetchall()
         print(type(records))
-        print("Total number customers: ", cursor.rowcount)
-        print("\nPrinting each customer record")
-
-        # for row in records:
-        #     print("Streetname= ", row[0], )
-        #     print("Streetno = ", row[1])
-        #     print("postcode  = ", row[2])
-        #     print("city  = ", row[3])
-        #     print("country  = ", row[4])
-        #     print("email = ", row[5])
-        #     print("phoneNo  = ", row[6], "\n")
-
         return records
 
     except Error as e:
