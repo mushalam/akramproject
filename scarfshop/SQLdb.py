@@ -10,10 +10,10 @@ try:
     sql_select_Query = "select * from tblAddress"
     cursor = connection.cursor()
     cursor.execute(sql_select_Query)
-    records = cursor.fetchone(5)
+    records = cursor.fetchone()
     print("Total number Addresses: ", cursor.rowcount)
-
     print("\nPrinting each Address record")
+
     for row in records:
         print("Streetname= ", row[0],)
         print("Streetno = ", row[1])
@@ -22,6 +22,7 @@ try:
         print("country  = ", row[4])
         print("email = ", row[5])
         print("phoneNo  = ", row[6], "\n")
+
 
 except Error as e:
     print("Error while connecting to MySQL", e)
