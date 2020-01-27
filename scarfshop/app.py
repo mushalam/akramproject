@@ -98,14 +98,15 @@ def shop_pass_reset():
 def retrieve_users():
     records = SQLdb.retrieve_users()
     print(records)
+    return records
 
 
 @app.route('/checkout', methods=['GET', 'POST'])
 def shop_checkout():
     users=retrieve_users()
     for user in users:
-        print(users[0])
-        print(users[1])
+        print(user[0])
+        print(user[1])
 
     error = None
     if request.method == 'POST':
