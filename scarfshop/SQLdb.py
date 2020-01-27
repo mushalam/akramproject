@@ -23,7 +23,6 @@ try:
         print("email = ", row[5])
         print("phoneNo  = ", row[6], "\n")
 
-
 except Error as e:
     print("Error while connecting to MySQL", e)
 finally:
