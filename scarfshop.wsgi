@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,"/var/www/scarfshop/scarfshop/")
 
-os.environ['USERNAME'] = 'useradmin'
+os.environ['USERNAME'] = 'root'
 os.environ['PASSWORD'] = 'Av136.356hP0x'
 os.environ['DATABASE'] = 'webApp_DB'
 os.environ['HOST'] = 'localhost'
