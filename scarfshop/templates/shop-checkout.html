@@ -49,10 +49,10 @@
                     <div class="col-md-6 col-sm-6">
                       <h3>Returning Customer</h3>
                       <p>I am a returning customer.</p>
-                      <form role="form" action="#">
+                      <form role="form" action="" method="post">
                         <div class="form-group">
                           <label for="email-login">Username</label>
-                          <input placeholder="Username" type="text" id="email-login" class="form-control" name="username" value="{{ request.form.username }}">
+                          <input placeholder="Email" type="text" id="email-login" class="form-control" name="username" value="{{ request.form.email }}">
                         </div>
                         <div class="form-group">
                           <label for="password-login">Password</label>
@@ -60,17 +60,13 @@
                         </div>
                         <a href="{{ url_for('shop_pass_reset') }}">Forgotten Password?</a>
                         <div class="padding-top-20">
-                          <button class="btn btn-primary" type="submit" value="Login">Login</button>
-                        </div>
-
-                        <div>
-                            {% if error %}
-                                <p class="error"><strong>Error:</strong>{{ error }}</p>
-                            {% endif %}
+                            <input class="btn btn-primary" type="submit" value="Login">Login</input>
                         </div>
                         <hr>
-                        
                       </form>
+                        {% if error %}
+                            <p class="error"><strong>Error:</strong>{{ error }}</p>
+                        {% endif %}
                     </div>
                   </div>
                 </div>
