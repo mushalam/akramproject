@@ -1,6 +1,7 @@
 import os
 import mysql.connector
 from mysql.connector import Error
+import MySQLdb.cursors
 
 username = os.environ['USERNAME']
 password = os.environ['PASSWORD']
@@ -8,16 +9,16 @@ database = os.environ['DATABASE']
 host = os.environ['HOST']
 
 
-def retrieve_users():
+def get_cursor():
     try:
         connection = mysql.connector.connect(host=host, database=database, user=username, password=password)
-
-        sql_select_Query = "select * from tblCustomer"
-        cursor = connection.cursor()
-        cursor.execute(sql_select_Query)
-        records = cursor.fetchall()
-        print(type(records))
-        return records
+        # sql_select_Query = "select * from tblCustomer"
+        cursor = connection.cursor(MySQLdb.cursors.DictCursor)
+        # cursor.execute(sql_select_Query)
+        # records = cursor.fetchall()
+        # print(type(records))
+        # return records
+        return cursor
 
     except Error as e:
         print("Error while connecting to MySQL", e)

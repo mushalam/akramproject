@@ -95,27 +95,34 @@ def shop_pass_reset():
 
 
 # Login, logout, and registration #
-def retrieve_users():
-    records = SQLdb.retrieve_users()
-    print(records)
-    return records
+def check_user_in_db(username, password):
+    cursor = SQLdb.get_cursor()
+    print("cursor is: " + str(cursor))
+    # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password))
+    account = cursor.fetchone()
+    print("account is: " + str(account))
+    return account
 
 
 @app.route('/checkout', methods=['GET', 'POST'])
+# source: https://codeshack.io/login-system-python-flask-mysql/#creatingtheloginsystem
 def shop_checkout():
-    users=retrieve_users()
-    for user in users:
-        print(user[0])
-        print(user[1])
-
     error = None
-    if request.method == 'POST':
-        if request.form['username'] == users[0] and request.form['password'] == users[1]:
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        user_retrieved = check_user_in_db(username, password)
+
+        if user_retrieved:
             session['logged_in'] = True
+            session['id'] = user_retrieved['id']
+            session['username'] = user_retrieved['email']
             return redirect(url_for('shop_main'))
         else:
-            error = 'Invalid credential. Please, try again.'
+            error = 'Invalid credentials. Please, try again.'
     return render_template('shop-checkout.html', error=error)
+
 
 
 @app.route('/logout')
