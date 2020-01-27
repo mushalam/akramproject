@@ -5,6 +5,8 @@ from datetime import datetime
 from functools import wraps
 from flask import Flask, render_template, request, url_for, redirect, session
 from jinja2 import Template
+from scarfshop import SQLdb
+
 
 app = Flask(__name__)
 # app = Flask(__name__, template_folder='/scarfshop/templates', static_url_path='/scarfshop/static')
@@ -93,8 +95,17 @@ def shop_pass_reset():
 
 
 # Login, logout, and registration #
+def retrieve_users():
+    records = SQLdb.retrieve_user()
+    print(records)
+
+
 @app.route('/checkout', methods=['GET', 'POST'])
 def shop_checkout():
+    users=retrieve_users()
+    print(users['email'])
+    print(users['password'])
+
     error = None
     if request.method == 'POST':
         if request.form['username'] != 'admin' or request.form['password'] != 'password':
