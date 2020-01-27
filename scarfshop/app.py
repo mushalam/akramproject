@@ -103,12 +103,13 @@ def retrieve_users():
 @app.route('/checkout', methods=['GET', 'POST'])
 def shop_checkout():
     users=retrieve_users()
-    print(users['email'])
-    print(users['password'])
+    for user in users:
+        print(users[0])
+        print(users[1])
 
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'password':
+        if request.form['username'] != users[0] or request.form['password'] != users[1]:
             error = 'Invalid credential. Please, try again.'
         else:
             session['logged_in'] = True
