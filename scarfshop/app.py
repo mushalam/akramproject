@@ -100,9 +100,9 @@ def shop_pass_reset():
 def shop_checkout():
     error = None
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        username = request.form['username']
-        password = request.form['password']
-        user_retrieved = SQLdb.get_users(username, password)
+        user_username = request.form['username']
+        user_password = request.form['password']
+        user_retrieved = SQLdb.get_users(user_username, user_password)
 
         if user_retrieved:
             session['logged_in'] = True
