@@ -101,7 +101,7 @@ def shop_checkout():
             error = 'Invalid credential. Please, try again.'
         else:
             session['logged_in'] = True
-            return redirect(url_for('data'))
+            return redirect(url_for('shop_main'))
     return render_template('shop-checkout.html', error=error)
 
 
