@@ -44,8 +44,8 @@ def shop_contacts():
     return render_template('shop-contacts.html')
 
 
-@login_required
 @app.route('/account')
+@login_required
 def shop_account():
     return render_template('shop-account.html')
 
