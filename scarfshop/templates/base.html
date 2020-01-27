@@ -84,6 +84,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 
                             {% if session['logged_in'] == True %}
                                 <li><a href="{{ url_for('shop_account') }}">My Account</a></li>
+                                <li><a href="{{ url_for('logout') }}">Logout</a></li>
                             {% endif %}
 
                             <li><a href="{{ url_for('shop_cart') }}">Cart</a></li>
