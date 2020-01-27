@@ -6,12 +6,10 @@ import logging
 logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,"/var/www/scarfshop/scarfshop/")
 
-os.environ['username'] = 'useradmin'
-os.environ['password'] = 'Av136.356hP0x'
-
-
-os.environ['MONGO_URI_USERS'] = 'mongodb://useradmin:Av136.356hP0x@192.168.0.30:24916/iot_users'
-os.environ['MONGO_URI_SENSORS'] = 'mongodb://useradmin:Av136.356hP0x@192.168.0.30:24916/iot_sensor_data'
+os.environ['USERNAME'] = 'useradmin'
+os.environ['PASSWORD'] = 'Av136.356hP0x'
+os.environ['DATABASE'] = 'webApp_DB'
+os.environ['HOST'] = 'localhost'
 
 
 from app import app as application
