@@ -5,7 +5,7 @@ from datetime import datetime
 from functools import wraps
 from flask import Flask, render_template, request, url_for, redirect, session
 from jinja2 import Template
-from scarfshop import SQLdb
+import SQLdb
 
 
 app = Flask(__name__)
