@@ -8,14 +8,15 @@ database = os.environ['DATABASE']
 host = os.environ['HOST']
 
 
-def retrieve_user():
+def retrieve_users():
     try:
         connection = mysql.connector.connect(host=host, database=database, user=username, password=password)
 
         sql_select_Query = "select * from tblCustomer"
         cursor = connection.cursor()
         cursor.execute(sql_select_Query)
-        records = cursor.fetchone()
+        records = cursor.fetchall()
+        print(type(records))
         print("Total number customers: ", cursor.rowcount)
         print("\nPrinting each customer record")
 

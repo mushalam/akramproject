@@ -96,7 +96,7 @@ def shop_pass_reset():
 
 # Login, logout, and registration #
 def retrieve_users():
-    records = SQLdb.retrieve_user()
+    records = SQLdb.retrieve_users()
     print(records)
 
 
