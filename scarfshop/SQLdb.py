@@ -1,7 +1,7 @@
 import os
 import mysql.connector
 from mysql.connector import Error
-import MySQLdb.cursors
+# import MySQLdb.cursors
 
 username = os.environ['USERNAME']
 password = os.environ['PASSWORD']
@@ -13,7 +13,8 @@ def get_cursor():
     try:
         connection = mysql.connector.connect(host=host, database=database, user=username, password=password)
         # sql_select_Query = "select * from tblCustomer"
-        cursor = connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor = connection.cursor()
+        # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
         # cursor.execute(sql_select_Query)
         # records = cursor.fetchall()
         # print(type(records))
