@@ -105,6 +105,11 @@ def shop_checkout():
         user_retrieved = SQLdb.get_users(user_username, user_password)
 
         if user_retrieved:
+            # query: cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', ('as', 'as'))
+            #is None for invalid password username
+
+            # query: cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', ('andrew.clarkson@yahoo.com', 'password2'))
+            # is account is: ('andrew.clarkson@yahoo.com', 'password2', 'Andrew', 'Johnson', datetime.date(1984, 10, 3)) for retrieved
             session['logged_in'] = True
             session['id'] = user_retrieved['id']
             session['username'] = user_retrieved['email']

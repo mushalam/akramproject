@@ -12,11 +12,10 @@ host = os.environ['HOST']
 def get_users(user_email, user_password):
     try:
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
-        # sql_select_Query = "select * from tblCustomer"
         cursor = connection.cursor()
         print("cursor is: " + str(cursor))
         # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (user_email, user_password))
+        cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', (user_email, user_password))
         account = cursor.fetchone()
         print("account is: " + str(account))
         return account
