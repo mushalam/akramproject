@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, url_for, redirect, session
 from jinja2 import Template
 
 app = Flask(__name__)
+# app = Flask(__name__, template_folder='/scarfshop/templates', static_url_path='/scarfshop/static')
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
 
 
