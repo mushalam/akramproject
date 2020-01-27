@@ -2,10 +2,10 @@ import os
 import mysql.connector
 from mysql.connector import Error
 
-username = os.environ['username']
-password = os.environ['password']
-database = os.environ['database']
-host = os.environ['host']
+username = os.environ['USERNAME']
+password = os.environ['PASSWORD']
+database = os.environ['DATABASE']
+host = os.environ['HOST']
 
 
 def retrieve_user():
