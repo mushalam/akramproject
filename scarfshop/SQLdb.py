@@ -9,17 +9,17 @@ database = os.environ['DATABASE']
 host = os.environ['HOST']
 
 
-def get_cursor():
+def get_users(username, password):
     try:
         connection = mysql.connector.connect(host=host, database=database, user=username, password=password)
         # sql_select_Query = "select * from tblCustomer"
         cursor = connection.cursor()
+        print("cursor is: " + str(cursor))
         # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-        # cursor.execute(sql_select_Query)
-        # records = cursor.fetchall()
-        # print(type(records))
-        # return records
-        return cursor
+        cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password))
+        account = cursor.fetchone()
+        print("account is: " + str(account))
+        return account
 
     except Error as e:
         print("Error while connecting to MySQL", e)
