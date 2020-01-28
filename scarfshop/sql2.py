@@ -7,7 +7,7 @@ connection = mysql.connector.connect(host='localhost',
                                      password='Av136.356hP0x')
 
 cursor = connection.cursor()
-cursor.execute("SELECT * FROM tblGuestCart")
+cursor.execute("SELECT `tblGuestCart`.`productID`, `tblGuestCart`.`quan`, `tblGuestCart`.`total`, `tblProduct`.`productName` FROM `tblProduct' LEFT JOIN `tblGuestCart` ON `tblGuestCart`.`productID` = `tblProduct`.`productID`")
 databases = cursor.fetchall()
 
 for database in databases:

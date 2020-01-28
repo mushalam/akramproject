@@ -28,68 +28,84 @@ def login_required(func):
 # Routes #
 @app.route('/')
 def shop_main():
-    return render_template('shop-index.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-index.html', items=cart_items)
 
 
 @app.route('/item')
 def shop_item():
-    return render_template('shop-item.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-item.html', items=cart_items)
 
 
 @app.route('/product-list')
 def shop_product_list():
-    return render_template('shop-product-list.html')
+    cart_items = SQLdb.get_cart_details()
+
+    return render_template('shop-product-list.html', items=cart_items)
 
 
 @app.route('/contacts')
 def shop_contacts():
-    return render_template('shop-contacts.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-contacts.html', items=cart_items)
 
 
 @app.route('/account')
 @login_required
 def shop_account():
-    return render_template('shop-account.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-account.html', items=cart_items)
 
 
 @app.route('/cart')
 def shop_cart():
-    return render_template('shop-shopping-cart.html')
+
+    cart_items=SQLdb.get_cart_details()
+
+    return render_template('shop-shopping-cart.html',items=cart_items)
 
 
 @app.route('/faq')
 def shop_faq():
-    return render_template('shop-faq.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-faq.html', items=cart_items)
 
 
 @app.route('/about')
 def shop_about():
-    return render_template('shop-about.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-about.html', items=cart_items)
 
 
 @app.route('/tc')
 def shop_tc():
-    return render_template('shop-contacts.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-contacts.html', items=cart_items)
 
 
 @app.route('/privp')
 def shop_privp():
-    return render_template('shop-privacy-policy.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-privacy-policy.html', items=cart_items)
 
 
 @app.route('/prod-l-w')
 def shop_prod_w():
-    return render_template('shop-product-list-women.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-product-list-women.html', items=cart_items)
 
 
 @app.route('/prod-l-k')
 def shop_prod_k():
-    return render_template('shop-product-list-Kids.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-product-list-Kids.html', items=cart_items)
 
 
 @app.route('/pass-reset')
 def shop_pass_reset():
-    return render_template('forgot-password.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('forgot-password.html', items=cart_items)
 
 # End of routes #
 
