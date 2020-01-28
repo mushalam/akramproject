@@ -35,27 +35,27 @@ def shop_main():
 @app.route('/item')
 def shop_item():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-item.html')
+    return render_template('shop-item.html', items=cart_items)
 
 
 @app.route('/product-list')
 def shop_product_list():
     cart_items = SQLdb.get_cart_details()
-    cart_item
-    return render_template('shop-product-list.html')
+
+    return render_template('shop-product-list.html', items=cart_items)
 
 
 @app.route('/contacts')
 def shop_contacts():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-contacts.html')
+    return render_template('shop-contacts.html', items=cart_items)
 
 
 @app.route('/account')
 @login_required
 def shop_account():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-account.html')
+    return render_template('shop-account.html', items=cart_items)
 
 
 @app.route('/cart')
@@ -69,43 +69,43 @@ def shop_cart():
 @app.route('/faq')
 def shop_faq():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-faq.html')
+    return render_template('shop-faq.html', items=cart_items)
 
 
 @app.route('/about')
 def shop_about():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-about.html')
+    return render_template('shop-about.html', items=cart_items)
 
 
 @app.route('/tc')
 def shop_tc():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-contacts.html')
+    return render_template('shop-contacts.html', items=cart_items)
 
 
 @app.route('/privp')
 def shop_privp():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-privacy-policy.html')
+    return render_template('shop-privacy-policy.html', items=cart_items)
 
 
 @app.route('/prod-l-w')
 def shop_prod_w():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-product-list-women.html')
+    return render_template('shop-product-list-women.html', items=cart_items)
 
 
 @app.route('/prod-l-k')
 def shop_prod_k():
     cart_items = SQLdb.get_cart_details()
-    return render_template('shop-product-list-Kids.html')
+    return render_template('shop-product-list-Kids.html', items=cart_items)
 
 
 @app.route('/pass-reset')
 def shop_pass_reset():
     cart_items = SQLdb.get_cart_details()
-    return render_template('forgot-password.html')
+    return render_template('forgot-password.html', items=cart_items)
 
 # End of routes #
 
