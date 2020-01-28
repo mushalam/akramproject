@@ -8,6 +8,7 @@ from jinja2 import Template
 import SQLdb
 
 
+
 app = Flask(__name__)
 # app = Flask(__name__, template_folder='/scarfshop/templates', static_url_path='/scarfshop/static')
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
@@ -103,21 +104,24 @@ def shop_checkout():
         user_username = request.form['username']
         user_password = request.form['password']
         user_retrieved = SQLdb.get_users(user_username, user_password)
+        cursor = SQLdb.get_users(user_username, user_password)
 
         if user_retrieved:
+            print("line112:" + str(user_retrieved))
             # query: cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', ('as', 'as'))
             #is None for invalid password username
 
             # query: cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', ('andrew.clarkson@yahoo.com', 'password2'))
             # is account is: ('andrew.clarkson@yahoo.com', 'password2', 'Andrew', 'Johnson', datetime.date(1984, 10, 3)) for retrieved
+            print(session.keys())
+
+            session['id'] = user_retrieved[5]
+            session['username'] = user_retrieved[0]
             session['logged_in'] = True
-            session['id'] = user_retrieved['id']
-            session['username'] = user_retrieved['email']
             return redirect(url_for('shop_main'))
         else:
             error = 'Invalid credentials. Please, try again.'
     return render_template('shop-checkout.html', error=error)
-
 
 
 @app.route('/logout')

@@ -6,20 +6,13 @@ db_username = os.environ['USERNAME']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']
-
-def get_cart_details():
-    try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
-        cursor = connection.cursor()
-        cursor.execute('SELECT FROM tblGuestCart')
-        cart_details = cursor.fetchall()
-    except Error as e:
-        return 'Error creating new cart'
+port = '37306'
 
 
 def get_users(user_email, user_password):
     try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
+        print(connection)
         cursor = connection.cursor()
         print("cursor is: " + str(cursor))
         # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -29,22 +22,21 @@ def get_users(user_email, user_password):
         return account
 
     except Error as e:
-        print("Error while connecting to MySQL", e)
+        print("Error while connecting to MySQL.", e)
 
     finally:
-        if (connection.is_connected()):
+        try:
             cursor.close()
             connection.close()
             print("MySQL connection is closed")
+        except Error as e:
+            print("No connection exists to the MySQL server.", e)
+
 
 
 def retrieve_address():
     try:
-        connection = mysql.connector.connect(host='localhost',
-                                             database='webApp_DB',
-                                             user='root',
-                                             password='Av136.356hP0x')
-
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
         sql_select_Query = "select * from tblAddress"
         cursor = connection.cursor()
         cursor.execute(sql_select_Query)
@@ -72,14 +64,11 @@ def retrieve_address():
             print("MySQL connection is closed")
 
 
-
-
-# print("\nPrinting each Address record")
-#     for row in records:
-#         print("Streetname= ", row[0],)
-#         print("Streetno = ", row[1])
-#         print("postcode  = ", row[2])
-#         print("city  = ", row[3])
-#         print("country  = ", row[4])
-#         print("email = ", row[5])
-#         print("phoneNo  = ", row[6], "\n")
+def get_cart_details():
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
+        cursor = connection.cursor()
+        cursor.execute('SELECT FROM tblGuestCart')
+        cart_details = cursor.fetchall()
+    except Error as e:
+        return 'Error creating new cart'
