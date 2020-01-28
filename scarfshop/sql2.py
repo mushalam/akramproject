@@ -7,7 +7,7 @@ connection = mysql.connector.connect(host='localhost',
                                      password='Av136.356hP0x')
 
 cursor = connection.cursor()
-cursor.execute("SHOW DATABASES")
+cursor.execute("SELECT * FROM tblGuestCart")
 databases = cursor.fetchall()
 
 for database in databases:
