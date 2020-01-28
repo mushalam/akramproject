@@ -2,8 +2,6 @@ import os
 import mysql.connector
 from mysql.connector import Error
 
-import MySQLdb.cursors
-
 db_username = os.environ['USERNAME']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
