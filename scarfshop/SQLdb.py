@@ -1,12 +1,35 @@
 import os
 import mysql.connector
 from mysql.connector import Error
-# import MySQLdb.cursors
+
+import MySQLdb.cursors
 
 db_username = os.environ['USERNAME']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']
+
+try:
+    connection = mysql.connector.connect(host='localhost',
+                                         database='webApp_DB',
+                                         user='root',
+                                         password='Av136.356hP0x')
+    print('connected')
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM tblCustomer')
+    acc = cursor.fetchone()
+    print(str(acc))
+except Error as e:
+    print('problem')
+
+def get_cart_details():
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
+        cursor = connection.cursor()
+        cursor.execute('SELECT FROM tblGuestCart')
+        cart_details = cursor.fetchall()
+    except Error as e:
+        return 'Error creating new cart'
 
 
 def get_users(user_email, user_password):
@@ -45,7 +68,7 @@ def retrieve_address():
         print("\nPrinting each Address record")
 
         for row in records:
-            print("Streetname= ", row[0],)
+            print("Streetname= ", row[0], )
             print("Streetno = ", row[1])
             print("postcode  = ", row[2])
             print("city  = ", row[3])
@@ -62,15 +85,6 @@ def retrieve_address():
             cursor.close()
             connection.close()
             print("MySQL connection is closed")
-
-
-
-
-
-
-
-
-
 
 
 
