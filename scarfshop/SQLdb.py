@@ -17,16 +17,16 @@ def get_cart_details():
     try:
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
         cursor = connection.cursor()
-        cursor.execute('SELECT FROM tblGuestCart')
+        cursor.execute('SELECT * FROM tblGuestCart')
         cart_details = cursor.fetchall()
-        return  cart_details
+        return cart_details
     except Error as e:
         print( 'Error getting cart info')
 def get_product_by_id(ProductID):
     try:
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
         cursor = connection.cursor()
-        cursor.execute('SELECT FROM tblProduct WHERE productID = %d',(ProductID))
+        cursor.execute('SELECT * FROM tblProduct WHERE productID = %d',(ProductID))
         product_details = cursor.fetchall()
         return  product_details
     except Error as e:
