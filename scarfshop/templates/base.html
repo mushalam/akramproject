@@ -113,7 +113,8 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                     <div class="top-cart-info">
                         {% total=0 %}
                         {% for item in items %}
-                        {% total=total+item[2] %}
+                        {% print(item) %}
+                        {% total=total+double(item[2]) %}
                         {% endfor %}
 
                         <a href="javascript:void(0);" class="top-cart-info-count">{{len(items}} items</a>
