@@ -11,6 +11,11 @@ import SQLdb
 app = Flask(__name__)
 # app = Flask(__name__, template_folder='/scarfshop/templates', static_url_path='/scarfshop/static')
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
+app.jinja_env.filters['zip']=zip
+
+
+def pull_sqldb(product_id):
+    return SQLdb.get_product_by_id(product_id)
 
 
 # Decorators #
@@ -22,20 +27,36 @@ def login_required(func):
         else:
             return redirect(url_for('login'))
     return wrap
+
+
+
+#
+# @app.context_processor
+# def utility_processor():
+#     def pull_sqldb(product_id):
+#         return SQLdb.get_product_by_id(product_id)
+#
+#     return dict(pull_sqldb=pull_sqldb)
+#     #return productID
 # End of decorators #
 
 
 # Routes #
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def shop_main():
     cart_items = SQLdb.get_cart_details()
     print(cart_items)
-    return render_template('shop-index.html', items=cart_items)
+    temp_list=[]
+    for cart_item in cart_items:
+        temp_list.append(SQLdb.get_product_by_id(cart_item[0]))
+    print(temp_list)
+    return render_template('shop-index.html', items=cart_items,t_items=temp_list)
 
 
 @app.route('/item')
 def shop_item():
     cart_items = SQLdb.get_cart_details()
+
     return render_template('shop-item.html', items=cart_items)
 
 

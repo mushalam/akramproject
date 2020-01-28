@@ -4,7 +4,7 @@ from mysql.connector import Error
 
 
 
-db_username = os.environ['USERNAME']
+db_username = os.environ['USERNAME_2']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']
@@ -15,16 +15,19 @@ host = os.environ['HOST']
 
 def get_cart_details():
     try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port='37306')
+        print(connection)
         cursor = connection.cursor()
+        print(cursor)
         cursor.execute('SELECT * FROM tblGuestCart')
         cart_details = cursor.fetchall()
+        print(cart_details)
         return cart_details
     except Error as e:
         print( 'Error getting cart info')
 def get_product_by_id(ProductID):
     try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port='37306')
         cursor = connection.cursor()
         cursor.execute('SELECT * FROM tblProduct WHERE productID = %d',(ProductID))
         product_details = cursor.fetchall()
@@ -35,7 +38,7 @@ def get_product_by_id(ProductID):
 
 def get_users(user_email, user_password):
     try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port='37306')
         cursor = connection.cursor()
         print("cursor is: " + str(cursor))
         # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -56,7 +59,7 @@ def get_users(user_email, user_password):
 
 def retrieve_address():
     try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password)
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port='37306')
 
         sql_select_Query = "select * from tblAddress"
         cursor = connection.cursor()

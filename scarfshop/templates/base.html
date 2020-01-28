@@ -114,25 +114,25 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                         {% set total=0 %}
                         {% for item in items %}
                         {% print(item) %}
-                        {% set total=total+double(item[2]) %}
+                        {% set total=total+item[2] %}
                         {% endfor %}
 
-                        <a href="javascript:void(0);" class="top-cart-info-count">{{len(items)}} items</a>
-                        <a href="javascript:void(0);" class="top-cart-info-value">£{{str(total)}}</a>
+                        <a href="javascript:void(0);" class="top-cart-info-count">{{items|length}} items</a>
+                        <a href="javascript:void(0);" class="top-cart-info-value">£{{total|string}}</a>
                     </div>
                     <i class="fa fa-shopping-cart"></i>
 
                     <div class="top-cart-content-wrapper">
                         <div class="top-cart-content">
                             <ul class="scroller" style="height: 250px;">
-                                {% for item in items %}
-                                {% set prod=SQLdb.get_product_by_id(int(item[0])) %}
+                                {% for item,t_item in items|zip(t_items)%}
+
                                 <li>
                                     <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
-                                                                              alt={{str(prod[1])}} width="37" height="34"></a>
-                                    <span class="cart-content-count">{{str(item[1])}}</span>
-                                    <strong><a href="{{ url_for('shop_item') }}">{{str(prod[1])}}</a></strong>
-                                    <em>{{str(item[2])}}</em>
+                                                                              alt={{t_item[1]|string}} width="37" height="34"></a>
+                                    <span class="cart-content-count">{{item[1]|string}}</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">{{t_item[1]|string}}</a></strong>
+                                    <em>{{item[2]|string}}</em>
                                     <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                                 </li>
                                 {% endfor %}
