@@ -29,6 +29,7 @@ def login_required(func):
 @app.route('/')
 def shop_main():
     cart_items = SQLdb.get_cart_details()
+    print(cart_items)
     return render_template('shop-index.html', items=cart_items)
 
 
