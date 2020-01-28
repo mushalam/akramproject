@@ -2,41 +2,16 @@ import os
 import mysql.connector
 from mysql.connector import Error
 
-#import MySQLdb.cursors
 
-#db_username = os.environ['USERNAME']
-#db_password = os.environ['PASSWORD']
-#database = os.environ['DATABASE']
-#host = os.environ['HOST']
-#test
-<<<<<<< HEAD
-try:
-    connection = mysql.connector.connect(host='localhost',
-                                         database='webApp_DB',
-                                         user='root',
-                                         password='Av136.356hP0x')
-    print('connected')
-    cursor = connection.cursor()
-    cursor.execute('SELECT * FROM tblGuestCart')
-    acc = cursor.fetchall()
-    a,b,c=acc
-	print(sum(a))
-except Error as e:
-    print('problem')
-=======
-# try:
-#     connection = mysql.connector.connect(host='localhost',
-#                                          database='webApp_DB',
-#                                          user='root',
-#                                          password='Av136.356hP0x')
-#     print('connected')
-#     cursor = connection.cursor()
-#     cursor.execute('SELECT * FROM tblCustomer')
-#     acc = cursor.fetchone()
-#     print(str(acc))
-# except Error as e:
-#     print('problem')
->>>>>>> 8bcd3b0ff3698113af67c9ffc9b27dba5ec0bc65
+
+db_username = os.environ['USERNAME']
+db_password = os.environ['PASSWORD']
+database = os.environ['DATABASE']
+host = os.environ['HOST']
+
+
+
+
 
 def get_cart_details():
     try:
