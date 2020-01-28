@@ -28,67 +28,83 @@ def login_required(func):
 # Routes #
 @app.route('/')
 def shop_main():
-    return render_template('shop-index.html')
+    cart_items = SQLdb.get_cart_details()
+    return render_template('shop-index.html', items=cart_items)
 
 
 @app.route('/item')
 def shop_item():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-item.html')
 
 
 @app.route('/product-list')
 def shop_product_list():
+    cart_items = SQLdb.get_cart_details()
+    cart_item
     return render_template('shop-product-list.html')
 
 
 @app.route('/contacts')
 def shop_contacts():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-contacts.html')
 
 
 @app.route('/account')
 @login_required
 def shop_account():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-account.html')
 
 
 @app.route('/cart')
 def shop_cart():
-    return render_template('shop-shopping-cart.html')
+
+    cart_items=SQLdb.get_cart_details()
+
+    return render_template('shop-shopping-cart.html',items=cart_items)
 
 
 @app.route('/faq')
 def shop_faq():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-faq.html')
 
 
 @app.route('/about')
 def shop_about():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-about.html')
 
 
 @app.route('/tc')
 def shop_tc():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-contacts.html')
 
 
 @app.route('/privp')
 def shop_privp():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-privacy-policy.html')
 
 
 @app.route('/prod-l-w')
 def shop_prod_w():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-product-list-women.html')
 
 
 @app.route('/prod-l-k')
 def shop_prod_k():
+    cart_items = SQLdb.get_cart_details()
     return render_template('shop-product-list-Kids.html')
 
 
 @app.route('/pass-reset')
 def shop_pass_reset():
+    cart_items = SQLdb.get_cart_details()
     return render_template('forgot-password.html')
 
 # End of routes #
