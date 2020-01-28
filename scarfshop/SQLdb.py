@@ -8,7 +8,7 @@ db_username = os.environ['USERNAME']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']
-
+#test
 try:
     connection = mysql.connector.connect(host='localhost',
                                          database='webApp_DB',
