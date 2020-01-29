@@ -1,0 +1,203 @@
+{% extends "/base.html" %}
+
+{% block head %}
+    <title>Registration | AkramsScarfs</title>
+{% endblock %}
+
+{% block body %}
+    <body class="ecommerce">
+    <div class="main">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="{{ url_for('shop_main') }}">Home</a></li>
+                <li class="active">Registration</li>
+            </ul>
+            <!-- BEGIN SIDEBAR & CONTENT -->
+            <div class="row margin-bottom-40">
+                <!-- BEGIN CONTENT -->
+                <div class="col-md-12 col-sm-12">
+                    <h1>Checkout</h1>
+                    <!-- BEGIN CHECKOUT PAGE -->
+                    <div class="panel-group checkout-page accordion scrollable" id="checkout-page">
+                        <!-- BEGIN CHECKOUT -->
+                        <div id="checkout" class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#checkout-page" href="#checkout-content" class="accordion-toggle"> Step 1: Privacy policy </a>
+                                </h2>
+                            </div>
+                            <div id="checkout-content" class="panel-collapse collapse in">
+                                <div class="panel-body row">
+                                        {% if error_reg %}
+                                            <p class="error"><strong>Error:</strong>{{ error_reg }}</p>
+                                        {% endif %}
+                                    <div class="col-md-6 col-sm-6">
+                                        <form>
+                                        <h3>New Customer</h3>
+                                        {% if message %}
+                                            <p class="error">{{ message }}</p>
+                                        {% endif %}
+
+                                        <div class="checkbox pull-left"><label><input required name="privpolcheck" id="privpolcheck" type="checkbox"> I have read and agree to the <a
+                                                title="Privacy Policy" href="{{ url_for('shop_privp') }}" target="_blank">Privacy Policy</a> &nbsp;&nbsp;&nbsp;</label>
+                                        </div>
+                                        <button class="btn btn-primary pull-right" type="button" data-toggle="collapse" data-parent="#checkout-page" data-target="#payment-address-content">Continue</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="{{ url_for('shop_registration') }}" method="post" autocomplete="off">
+                            <!-- BEGIN PAYMENT ADDRESS -->
+                            <div id="payment-address" class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2 class="panel-title"><a data-toggle="collapse" data-parent="#checkout-page" href="#payment-address-content" class="accordion-toggle"> Step 2: Account &amp; Billing Details </a></h2>
+                                </div>
+                                <div id="payment-address-content" class="panel-collapse collapse">
+                                    <div class="panel-body row">
+                                        <div class="col-md-6 col-sm-6">
+                                            <h3>Your Personal Details</h3>
+                                            <div class="form-group">
+                                                <label for="firstname">First Name <span class="require">*</span></label>
+                                                <input type="text" name="firstname" id="firstname" placeholder="First name" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastname">Last Name <span class="require">*</span></label>
+                                                <input type="text" name="lastname" id="lastname" placeholder="Last name" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">E-Mail <span class="require">*</span></label>
+                                                <input type="text" name="email" id="email" placeholder="Email" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="telephone">Telephone <span class="require">*</span></label>
+                                                <input type="text" name="phone" id="telephone" placeholder="Phone number" class="form-control" required>
+                                            </div>
+
+                                            <h3>Your Password</h3>
+                                            <div class="form-group">
+                                                <label for="password">Password <span class="require">*</span></label>
+                                                <input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password-confirm">Password Confirm <span
+                                                        class="require">*</span></label>
+                                                <input type="password" name="password" id="password-confirm" placeholder="Password" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <h3>Your Address</h3>
+                                            <div class="form-group">
+                                                <label for="address1">Address 1 <span class="require">*</span></label>
+                                                <input type="text" name="address1" id="address1" placeholder="Address 1" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address2">Address 2 <span class="require">*</span></label>
+                                                <input type="text" name="address2" id="address2" placeholder="Address 2" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="city">City <span class="require">*</span></label>
+                                                <input type="text" name="city" id="city" placeholder="City" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="post-code">Post Code <span class="require">*</span></label>
+                                                <input type="text" name="postcode" id="post-code" placeholder="Post code" class="form-control required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="country">Country <span class="require">*</span></label>
+                                                <select class="form-control input-sm" name="country" id="country">
+                                                    <option value="" selected> --- Please Select ---</option>
+                                                    <option value="244">Aaland Islands</option>
+                                                    <option value="1">Afghanistan</option>
+                                                    <option value="2">Albania</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="region-state">Region/State </label>
+                                                <select class="form-control input-sm" name="state" id="region-state">
+                                                    <option value="" selected> --- Please Select ---</option>
+                                                    <option value="3513">Aberdeen</option>
+                                                    <option value="3514">Aberdeenshire</option>
+                                                    <option value="3515">Anglesey</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="col-md-12">
+                                            <input class="btn btn-primary pull-right" type="submit" value="Register" id="button-register">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PAYMENT ADDRESS -->
+                        </form >
+                    </div>
+                    <!-- END REGISTRATION PAGE -->
+                </div>
+
+{#            <script type="text/javascript">#}
+{#                if(<document></document>tElementById('gender_Male').checked) {#}
+{#                    //Male radio button is checked#}
+{#                } else if (document.getElementById('gender_Female').checked) {#}
+{#                    //Female radio button is checked#}
+{#                }#}
+{#            </script>#}
+                <!-- END CONTENT -->
+            </div>
+            <!-- END SIDEBAR & CONTENT -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        var myInput = document.getElementById("password");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+
+        // when the user starts to type something into the password field
+        myInput.onkeyup = function() {
+            // validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            }
+            else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+            //validate uppercase letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            }
+            else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+            // validate numbers
+            var numbers = [0-9]/g;
+            if(myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            }
+            else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+            // validate length
+            if(myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            }
+            else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+        }
+        </script>
+
+    </body>
+{% endblock %}
