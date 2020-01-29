@@ -125,9 +125,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                                 {% for item,t_item in items|zip(t_items)%}
 
                                 <li>
-                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/products/id/{{item[0]|string}}.jpg"
                                                                               alt={{t_item[1]|string}} width="37" height="34"></a>
-                                    <span class="cart-content-count">{{item[1]|string}}</span>
+                                    <span class="cart-content-count">qnty {{item[1]|string}}</span>
                                     <strong><a href="{{ url_for('shop_item') }}">{{t_item[1]|string}}</a></strong>
                                     <em>{{item[2]|string}}</em>
                                     <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
