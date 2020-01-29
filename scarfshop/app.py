@@ -162,9 +162,12 @@ def shop_pass_reset():
     return render_template('forgot-password.html',items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
-@app.route('/checkout')
+@app.route('/checkout', methods=['POST','GET'])
 def shop_checkout():
-    return render_template('shop-checkout.html')
+    cart_items, temp_list, total, entries = pull_data()
+    return render_template('shop-checkout.html', items=cart_items, t_items=temp_list, total=total, entries=entries)
+
+
 
 # End of routes #
 
