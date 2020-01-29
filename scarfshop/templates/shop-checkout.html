@@ -194,54 +194,37 @@
                                                     <th class="checkout-price">Price</th>
                                                     <th class="checkout-total">Total</th>
                                                 </tr>
+                                                {% for item,t_item in items|zip(t_items) %}
                                                 <tr>
-                                                    <td class="checkout-image"><a href="javascript:;"><img src="static/pages/img/products/model3.jpg"
-                                                                                                           alt="Berry Lace Dress"></a></td>
+                                                    <td class="checkout-image"><a href="javascript:;"><img src="../static/pages/img/products/id/{{item[0]|string}}.jpg"
+                                                                                                           alt="{{t_item[1]|string}}"></a></td>
                                                     <td class="checkout-description">
-                                                        <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                                                        <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                                                        <em>More info is here</em></td>
-                                                    <td class="checkout-model">RES.193</td>
-                                                    <td class="checkout-quantity">1</td>
-                                                    <td class="checkout-price"><strong><span>$</span>47.00</strong></td>
-                                                    <td class="checkout-total"><strong><span>$</span>47.00</strong></td>
+                                                        <h3><a href="javascript:;">{{t_item[1]|string}}</a></h3>
+                                                        <p><strong>ProductID:{{item[0]|string}}</strong> -{{t_item[3]|string}}</p>
+                                                        </td>
+
+                                                    <td class="checkout-quantity">{{item[1]|string}}</td>
+                                                    <td class="checkout-price"><strong><span>£</span>{{t_item[2]|string}}</strong></td>
+                                                    <td class="checkout-total"><strong><span>£</span>{{item[2]|string}}</strong></td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="checkout-image"><a href="javascript:;"><img src="static/pages/img/products/model4.jpg"
-                                                                                                           alt="Berry Lace Dress"></a></td>
-                                                    <td class="checkout-description">
-                                                        <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                                                        <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                                                        <em>More info is here</em>
-                                                    </td>
-                                                    <td class="checkout-model">RES.193</td>
-                                                    <td class="checkout-quantity">1</td>
-                                                    <td class="checkout-price"><strong><span>$</span>47.00</strong></td>
-                                                    <td class="checkout-total"><strong><span>$</span>47.00</strong></td>
-                                                </tr>
+                                                {% endfor %}
+
                                             </table>
                                         </div>
                                         <div class="checkout-total-block">
                                             <ul>
                                                 <li>
                                                     <em>Sub total</em>
-                                                    <strong class="price"><span>$</span>47.00</strong>
+                                                    <strong class="price"><span>£</span>{{total|string}}</strong>
                                                 </li>
                                                 <li>
                                                     <em>Shipping cost</em>
-                                                    <strong class="price"><span>$</span>3.00</strong>
+                                                    <strong class="price"><span>£</span>{{ship|string}}</strong>
                                                 </li>
-                                                <li>
-                                                    <em>Eco Tax (-2.00)</em>
-                                                    <strong class="price"><span>$</span>3.00</strong>
-                                                </li>
-                                                <li>
-                                                    <em>VAT (20.0%)</em>
-                                                    <strong class="price"><span>$</span>3.00</strong>
-                                                </li>
+
                                                 <li class="checkout-total-price">
                                                     <em>Total</em>
-                                                    <strong class="price"><span>$</span>56.00</strong>
+                                                    <strong class="price"><span>£</span>{{t_cost|string}}</strong>
                                                 </li>
                                             </ul>
                                         </div>
