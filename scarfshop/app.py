@@ -22,7 +22,7 @@ def pull_data():
     temp_list = []
     total = 0.00
     for item in cart_items:
-        total = total + float(item[2])
+        total = round(total + float(item[2]),2)
     entries = len(cart_items)
     for cart_item in cart_items:
         temp_list.append(SQLdb.get_product_by_id(int(cart_item[0])))
@@ -84,9 +84,11 @@ def shop_cart():
         b=request.form['prodID']
         #print(str(a))
         SQLdb.update_cart(int(b),int(a))
+        if request.form['del']=='true':
+            SQLdb.delete_cart_entry(int(b))
+            redirect(url_for('shop_cart'))
 
-        redirect(url_for('shop_cart'))
-        redirect(url_for('shop_cart'))
+
     return render_template('shop-shopping-cart.html',items=cart_items,t_items=temp_list,total=total,entries=entries,t_cost=total_cost,ship=shipping_cost)
 
 

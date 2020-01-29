@@ -37,13 +37,13 @@
                       <h3><a href="javascript:;">{{t_item[1]|string}}</a></h3>
                       <p><strong>ProductID:{{item[0]|string}}</strong> - {{t_item[3]|string}}</p>
                       <input type="hidden" name="prodID" value="{{item[0]|string}}">
-
+                      <input id="del_bool" type="hidden" name="del" value="false">
 
                     </td>
 
                     <td class="goods-page-quantity">
                       <div class="product-quantity">
-                          <input id="product-quantity" type="text" name="quantity"  value="{{item[1]|string}}" style="width:50px;">
+                          <input id="product-quantity" href={{url_for('shop_cart')}} type="text" name="quantity"  value="{{item[1]|string}}" style="width:50px;">
                       </div>
                     </td>
                     <td class="goods-page-update">
@@ -57,8 +57,9 @@
                       <strong><span>£</span>{{item[2]|string}}</strong>
                     </td>
                     <td class="del-goods-col">
-                      <a href="#" class="del-goods"  onclick="document.getElementById('form{{item[0]|string}}').submit();">
-                      &nbsp;</a></td>
+                      <a href="#" class="del-goods"  onclick="
+                      document.getElementById('del_bool').value='true';
+                      document.getElementById('form{{item[0]|string}}').submit();">&nbsp;</a></td>
                   </tr>
                 </form>
                   {% endfor %}

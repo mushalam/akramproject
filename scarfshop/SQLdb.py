@@ -9,6 +9,18 @@ database = os.environ['DATABASE']
 host = os.environ['HOST']
 port = '37306'
 
+
+def delete_cart_entry(productID):
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
+        cursor = connection.cursor()
+        delquery='DELETE FROM tblGuestCart WHERE productID = '+str(productID)
+        cursor.execute(delquery)
+        connection.commit()
+    except Error as e:
+        print( 'Error deleting cart item')
+
+
 def update_cart(productID,quantity):
     prod_details = get_product_by_id(productID)
     try:
