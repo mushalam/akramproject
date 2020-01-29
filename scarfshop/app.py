@@ -149,7 +149,7 @@ def shop_checkout():
             return redirect(url_for('shop_main'))
         else:
             error = 'Invalid credentials. Please, try again.'
-    return render_template('shop-checkout.html', error=error,items=cart_items,t_items=temp_list,total=total,entries=entries)
+    return render_template('shop-checkout.html', error_login=error,items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/logout')
@@ -162,9 +162,37 @@ def logout():
     return redirect(url_for('shop_main'))
 
 
-@app.route('/registration')
+@app.route('/registration', methods=['GET', 'POST'])
 def registration():
-    return render_template('registration.html')
+    message = None
+    rf = request.form
+
+    if ( request.method == 'POST' and all([
+        'firstname' in rf, 'lastname' in rf, 'email' in rf, 'telephone' in rf, 'password' in rf,
+        'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf,
+        ])
+    ):
+        firstname = rf['firstname']
+        lastname = rf['lastname']
+        email = rf['email']
+        telephone = rf['telephone']
+        password = rf['password']
+        address1 = rf['address1']
+        address2 = rf['address2']
+        city = rf['city']
+        postcode = rf['postcode']
+        country = rf['country']
+
+        message = SQLdb.registeruser(firstname, lastname, email, telephone, password, address1, address2, city, postcode, country)
+
+    elif ( request.method == 'POST' and not any([
+        'firstname' in rf, 'lastname' in rf, 'email' in rf, 'telephone' in rf, 'password' in rf,
+        'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf
+        ])
+    ):
+        message = 'Please, fill out the form.'
+
+    return render_template('shop-checkout.html', error_reg=message)
 # End of login and registration #
 
 

@@ -1,4 +1,5 @@
 import os
+import re
 import mysql.connector
 from mysql.connector import Error
 
@@ -56,6 +57,41 @@ def get_users(user_email, user_password):
             print("MySQL connection is closed")
         except Error as e:
             print("No connection exists to the MySQL server.", e)
+
+
+def registeruser(firstname, lastname, email, telephone, password, address1, address2, city, postcode, country):
+    try:
+        message = ""
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM tblCustomers WHERE email = %s', (email))
+        account = cursor.fetchone()
+        if account:
+            message = 'Account already exists!'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+            message = 'Invalid email address!'
+        elif not re.match(r'[A-Za-z0-9]+', firstname):
+            message = 'First name must contain only characters!'
+        elif not re.match(r'[A-Za-z0-9]+', lastname):
+            message = 'Last name must contain only characters and numbers!'
+        elif not any([firstname, lastname, email, telephone, password, address1, city, postcode, country]):
+            message = 'Please fill out the form!'
+        else:
+            # tblCustomers ( email, password, firstname, lastname, dob, userID )
+            cursor.execute('INSERT INTO tblCustomers VALUES (%s, %s, %s, %s, NULL)', (email, password, firstname, lastname, userID))
+            connection.commit()
+
+            #tblAddress ( streetname, streetnumber, postcode, city, country, email, telephone )
+            cursor.execute('INSERT INTO tblAddress VALUES (%s, %s, %s, %s, %s, %s, %s )', (address1, address2, postcode, city, country, email, telephone))
+            connection.commit()
+
+            message = 'You have successfully registered!'
+
+        return message
+
+
+
+    except
 
 
 

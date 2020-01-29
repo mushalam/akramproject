@@ -44,7 +44,7 @@
                                             </label>
                                         </div>
                                         <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
-                                        <button class="btn btn-primary" type="submit" data-toggle="collapse" data-parent="#checkout-page" data-target="#payment-address-content">Continue</button>
+                                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-parent="#checkout-page" data-target="#payment-address-content">Continue</button>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <h3>Returning Customer</h3>
@@ -76,8 +76,8 @@
                                             </div>
                                             <hr>
                                         </form>
-                                        {% if error %}
-                                            <p class="error"><strong>Error:</strong>{{ error }}</p>
+                                        {% if error_login %}
+                                            <p class="error"><strong>Error:</strong>{{ error_login }}</p>
                                         {% endif %}
 
 
@@ -120,7 +120,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="telephone">Telephone <span class="require">*</span></label>
-                                                <input type="text" name="phone" id="telephone" placeholder="Phone number" class="form-control">
+                                                <input type="text" name="phone" id="telephone" placeholder="Phone number" class="form-control" required>
                                             </div>
 
                                             <h3>Your Password</h3>
@@ -137,12 +137,12 @@
                                         <div class="col-md-6 col-sm-6">
                                             <h3>Your Address</h3>
                                             <div class="form-group">
-                                                <label for="address1">Address 1</label>
+                                                <label for="address1">Address 1 <span class="require">*</span></label>
                                                 <input type="text" name="address1" id="address1" placeholder="Address 1" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="address2">Address 2</label>
-                                                <input type="text" name="address2" id="address2" placeholder="Address 2" class="form-control">
+                                                <label for="address2">Address 2 <span class="require">*</span></label>
+                                                <input type="text" name="address2" id="address2" placeholder="Address 2" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="city">City <span class="require">*</span></label>
@@ -150,11 +150,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="post-code">Post Code <span class="require">*</span></label>
-                                                <input type="text" name="postcode" id="post-code" placeholder="Post code" class="form-control required>
+                                                <input type="text" name="postcode" id="post-code" placeholder="Post code" class="form-control required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="country">Country <span class="require">*</span></label>
-                                                <select class="form-control input-sm" id="country">
+                                                <select class="form-control input-sm" name="country" id="country">
                                                     <option value="" selected> --- Please Select ---</option>
                                                     <option value="244">Aaland Islands</option>
                                                     <option value="1">Afghanistan</option>
@@ -162,9 +162,8 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="region-state">Region/State <span
-                                                        class="require">*</span></label>
-                                                <select class="form-control input-sm" id="region-state">
+                                                <label for="region-state">Region/State </label>
+                                                <select class="form-control input-sm" name="state" id="region-state">
                                                     <option value="" selected> --- Please Select ---</option>
                                                     <option value="3513">Aberdeen</option>
                                                     <option value="3514">Aberdeenshire</option>
@@ -180,11 +179,11 @@
                                                     <input type="checkbox" checked="checked"> My delivery and billing addresses are the same.
                                                 </label>
                                             </div>
-                                            <button class="btn btn-primary  pull-right" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-address-content" id="button-payment-address"> Continue
+                                            <button class="btn btn-primary  pull-right" type="button" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-address-content" id="button-payment-address"> Continue
                                             </button>
                                             <div class="checkbox pull-right">
                                                 <label>
-                                                    <input type="checkbox"> I have read and agree to the <a title="Privacy Policy" href="{{ url_for('shop_privp') }}" target="_blank">Privacy Policy</a> &nbsp;&nbsp;&nbsp;</label>
+                                                    <input required type="checkbox"> I have read and agree to the <a title="Privacy Policy" href="{{ url_for('shop_privp') }}" target="_blank">Privacy Policy</a> &nbsp;&nbsp;&nbsp;</label>
                                             </div>
                                         </div>
                                     </div>
@@ -192,98 +191,28 @@
                             </div>
                             <!-- END PAYMENT ADDRESS -->
 
-                            <!-- BEGIN SHIPPING ADDRESS -->
-                            <div id="shipping-address" class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h2 class="panel-title"><a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-address-content" class="accordion-toggle"> Step 3: Delivery Details </a></h2>
-                                </div>
-                                <div id="shipping-address-content" class="panel-collapse collapse">
-                                    <div class="panel-body row">
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="firstname-dd">First Name <span class="require">*</span></label>
-                                                <input type="text" name="firstname-dd" id="firstname-dd" placeholder="First name" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="lastname-dd">Last Name <span class="require">*</span></label>
-                                                <input type="text" name="lastname-dd" id="lastname-dd" placeholder="Last name" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email-dd">E-Mail <span class="require">*</span></label>
-                                                <input type="text" name="email-dd" id="email-dd" placeholder="Email" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="telephone-dd">Telephone <span class="require">*</span></label>
-                                                <input type="text" name="telephone-dd" id="telephone-dd" placeholder="Phone number" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="address1-dd">Address 1</label>
-                                                <input type="text" name="address1-dd" id="address1-dd" placeholder="Address 1" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="address2-dd">Address 2</label>
-                                                <input type="text" name="address2-dd" id="address2-dd" placeholder="Address 2" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="city-dd">City <span class="require">*</span></label>
-                                                <input type="text" name="city-dd" id="city-dd" placeholder="City" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="post-code-dd">Post Code <span class="require">*</span></label>
-                                                <input type="text" name="postcode-dd" id="post-code-dd" placeholder="Post code" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="country-dd">Country <span class="require">*</span></label>
-                                                <select class="form-control input-sm" id="country-dd">
-                                                    <option value="" selected> --- Please Select ---</option>
-                                                    <option value="244">Aaland Islands</option>
-                                                    <option value="1">Afghanistan</option>
-                                                    <option value="2">Albania</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="region-state-dd">Region/State <span class="require">*</span></label>
-                                                <select class="form-control input-sm" id="region-state-dd">
-                                                    <option value="" selected> --- Please Select ---</option>
-                                                    <option value="3513">Aberdeen</option>
-                                                    <option value="3514">Aberdeenshire</option>
-                                                    <option value="3515">Anglesey</option>
-                                                    <option value="3516">Angus</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button class="btn btn-primary  pull-right" id="button-shipping-address" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-method-content">Continue</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END SHIPPING ADDRESS -->
-
                             <!-- BEGIN SHIPPING METHOD -->
                             <div id="shipping-method" class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-method-content" class="accordion-toggle"> Step 4: Delivery Method</a>
+                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-method-content" class="accordion-toggle"> Step 3: Delivery Method</a>
                                     </h2>
                                 </div>
                                 <div id="shipping-method-content" class="panel-collapse collapse">
                                     <div class="panel-body row">
                                         <div class="col-md-12">
-                                            <p>Please select the preferred shipping method to use on this order.</p>
+                                            <p>Please select the preferred shipping method to use on this order. <span class="require">*</span></p>
                                             <h4>Flat Rate</h4>
                                             <div class="radio-list">
                                                 <label>
-                                                    <input type="radio" name="FlatShippingRate" value="FlatShippingRate"> Flat Shipping Rate
+                                                    <input required type="radio" name="FlatShippingRate" value="FlatShippingRate"> Flat Shipping Rate
                                                 </label>
                                             </div>
                                             <div class="form-group">
                                                 <label for="delivery-comments">Add Comments About Your Order</label>
                                                 <textarea id="delivery-comments" rows="8" class="form-control"></textarea>
                                             </div>
-                                            <button class="btn btn-primary  pull-right" id="button-shipping-method" data-toggle="collapse" data-parent="#checkout-page" data-target="#payment-method-content">Continue</button>
+                                            <button class="btn btn-primary  pull-right" type="button" id="button-shipping-method" data-toggle="collapse" data-parent="#checkout-page" data-target="#payment-method-content">Continue</button>
                                         </div>
                                     </div>
                                 </div>
@@ -294,26 +223,22 @@
                             <div id="payment-method" class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#payment-method-content" class="accordion-toggle"> Step 5: Payment Method </a>
+                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#payment-method-content" class="accordion-toggle"> Step 4: Payment Method </a>
                                     </h2>
                                 </div>
                                 <div id="payment-method-content" class="panel-collapse collapse">
                                     <div class="panel-body row">
                                         <div class="col-md-12">
-                                            <p>Please select the preferred payment method to use on this order.</p>
+                                            <p>Please select the preferred payment method to use on this order.<span class="require">*</span></p>
                                             <div class="radio-list">
                                                 <label>
-                                                    <input type="radio" name="CashOnDelivery" value="CashOnDelivery"> Cash On Delivery
+                                                    <input required type="radio" name="CashOnDelivery" value="CashOnDelivery"> Cash On Delivery
                                                 </label>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="delivery-payment-method">Add Comments About Your Order</label>
-                                                <textarea id="delivery-payment-method" rows="8" class="form-control"></textarea>
-                                            </div>
-                                            <button class="btn btn-primary  pull-right" id="button-payment-method" data-toggle="collapse" data-parent="#checkout-page" data-target="#confirm-content">Continue</button>
+                                            <button class="btn btn-primary  pull-right" type="button" id="button-payment-method" data-toggle="collapse" data-parent="#checkout-page" data-target="#confirm-content">Continue</button>
                                             <div class="checkbox pull-right">
                                                 <label>
-                                                    <input type="checkbox"> I have read and agree to the <a title="Terms & Conditions" href="{{ url_for('shop_tc') }}" target="_blank">Terms & Conditions </a> &nbsp;&nbsp;&nbsp;
+                                                    <input required type="checkbox"> I have read and agree to the <a title="Terms & Conditions" href="{{ url_for('shop_tc') }}" target="_blank">Terms & Conditions <span class="require">*</span></a> &nbsp;&nbsp;&nbsp;
                                                 </label>
                                             </div>
                                         </div>
@@ -326,7 +251,7 @@
                             <div id="confirm" class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title"><a data-toggle="collapse" data-parent="#checkout-page" href="#confirm-content"
-                                                               class="accordion-toggle"> Step 6: Confirm Order</a></h2>
+                                                               class="accordion-toggle"> Step 5: Confirm Order</a></h2>
                                 </div>
                                 <div id="confirm-content" class="panel-collapse collapse">
                                     <div class="panel-body row">
@@ -393,8 +318,12 @@
                                                 </ul>
                                             </div>
                                             <div class="clearfix"></div>
-                                            <button class="btn btn-primary pull-right" type="submit" id="button-confirm">Confirm Order</button>
+                                            <input class="btn btn-primary pull-right" type="submit" value="Register" id="button-register">
+                                            <input class="btn btn-primary pull-right" type="submit" value="Order"id="button-confirm">
                                             <button type="button" class="btn btn-default pull-right margin-right-20">Cancel</button>
+                                            {% if error_reg %}
+                                            <p class="error"><strong>Error:</strong>{{ error_reg }}</p>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
