@@ -4,7 +4,7 @@ from mysql.connector import Error
 
 
 
-db_username = os.environ['USERNAME_2']
+db_username = os.environ['USERNAME']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']

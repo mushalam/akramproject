@@ -3,17 +3,25 @@ import json
 import os
 from datetime import datetime
 from functools import wraps
-from flask import Flask, render_template, request, url_for, redirect, session
+from flask import Flask, render_template, request, url_for, redirect, session, flash
 from jinja2 import Template
 import SQLdb
 from forms import ContactForm
+from flask_mail import Message, Mail
 
-
+mail = Mail()
 
 app = Flask(__name__)
 # app = Flask(__name__, template_folder='/scarfshop/templates', static_url_path='/scarfshop/static')
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
 
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = 'akramscarfsup@gmail.com'
+app.config["MAIL_PASSWORD"] = 'Brunel123'
+
+mail.init_app(app)
 
 # Decorators #
 def login_required(func):
@@ -53,7 +61,18 @@ def contact():
     form = ContactForm()
 
     if request.method == 'POST':
-        return 'Form posted.'
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('contact.html', form=form)
+        else:
+            msg = Message(form.subject.data, sender='contact@example.com', recipients=['your_email@example.com'])
+            msg.body = """
+      From: %s &lt;%s&gt;
+      %s
+      """ % (form.name.data, form.email.data, form.message.data)
+            mail.send(msg)
+
+            return render_template('contact.html', success=True)
 
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
