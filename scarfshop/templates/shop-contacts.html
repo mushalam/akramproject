@@ -18,9 +18,13 @@
               <!-- BEGIN SIDEBAR -->
               <div class="sidebar col-md-3 col-sm-3">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
-                  <li class="list-group-item clearfix"><a href="{{ url_for('shop_checkout') }}"><i class="fa fa-angle-right"></i> Register</a></li>
-                  <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> FORGOT Password</a></li>
-                  <li class="list-group-item clearfix"><a href="{{ url_for('shop_account') }}"><i class="fa fa-angle-right"></i> My account</a></li>
+                  <li class="list-group-item clearfix"><a href="{{ url_for('shop_registration') }}"><i class="fa fa-angle-right"></i> Register</a></li>
+                  <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Forgot Password</a></li>
+                  {% if session['logged_in'] == True %}
+                        <li class="list-group-item clearfix"><a href="{{ url_for('shop_account') }}"><i class="fa fa-angle-right"></i> My account</a></li>
+                    {% else %}
+                        <li class="list-group-item clearfix"><a href="{{ url_for('shop_login') }}"><i class="fa fa-angle-right"></i> My account</a></li>
+                    {% endif %}
 
                 </ul>
 
@@ -36,12 +40,12 @@
               <div class="col-md-9 col-sm-9">
                 <h1>Contact</h1>
                 <div class="content-page">
-                   <div class="gmaps margin-bottom-40" style="height:300px;"><div class="gmap_canvas"><iframe width="600" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=brunel%20university%20London&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.thevpncoupons.com"></a></div><style>.mapouter{position:relative;text-align:right;height:300px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+                  <div class="gmaps margin-bottom-40" style="height:300px;"><div class="gmap_canvas"><iframe width="600" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=brunel%20university%20London&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.thevpncoupons.com"></a></div><style>.mapouter{position:relative;text-align:right;height:300px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
 
-                    <div>
-                      <h2>Contact Form</h2>
-                      <p>Lorem ipsum dolor sit amet, Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat consectetuer adipiscing elit, sed diam nonummy nibh euismod tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                    </div>
+                  <h2>Contact Form</h2>
+                    <p>We hope that you are satisfied with your purchase and you experience with our services but sometimes things may not go according to plan and if you feel we can improve our services then please let us know. </p>
+                    <p>You can expect that we will try our best to resolve your issue by making it easy to contact us.  Please fill out the form below and a representative from our team will respond within 5 working days. You may also call our number at 01501203321.</p>
+
                   <!-- BEGIN FORM-->
                   <form action="#" class="default-form" role="form">
                     <div class="form-group">

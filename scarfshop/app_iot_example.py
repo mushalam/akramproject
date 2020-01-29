@@ -148,7 +148,7 @@ def login_required(func):
         if 'logged_in' in session:
             return func(*args, **kwargs)
         else:
-            return redirect(url_for('login'))
+            return redirect(url_for('shop_login'))
     return wrap
 
 
@@ -172,7 +172,7 @@ def data():
     if session['logged_in'] == True:
         return page.render(main_url=main_url, logout_url=logout_url, resources=CDN.render())
     else:
-        return redirect(url_for('login'))
+        return redirect(url_for('shop_login'))
 
 
 @app.route('/plotir')

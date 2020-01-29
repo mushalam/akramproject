@@ -36,10 +36,13 @@
           <!-- BEGIN SIDEBAR -->
           <div class="sidebar col-md-3 col-sm-3">
             <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="{{ url_for('shop_checkout') }}"><i class="fa fa-angle-right"></i> Register</a></li>
+              <li class="list-group-item clearfix"><a href="{{ url_for('shop_registration') }}"><i class="fa fa-angle-right"></i> Register</a></li>
               <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
-              <li class="list-group-item clearfix"><a href="{{ url_for('shop_account') }}"><i class="fa fa-angle-right"></i> My account</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
+              {% if session['logged_in'] == True %}
+                  <li class="list-group-item clearfix"><a href="{{ url_for('shop_account') }}"><i class="fa fa-angle-right"></i> My account</a></li>
+              {% else %}
+                  <li class="list-group-item clearfix"><a href="{{ url_for('shop_login') }}"><i class="fa fa-angle-right"></i> My account</a></li>
+              {% endif %}
             </ul>
           </div>
           <!-- END SIDEBAR -->
