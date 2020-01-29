@@ -3,10 +3,13 @@ import json
 import os
 from datetime import datetime
 from functools import wraps
-from flask import Flask, render_template, request, url_for, redirect, session
+from flask import Flask, render_template, request, url_for, redirect, session, flash
 from jinja2 import Template
 import SQLdb
+from forms import ContactForm
+from flask_mail import Message, Mail
 
+mail = Mail()
 
 
 app = Flask(__name__)
@@ -15,6 +18,11 @@ app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD3436
 app.jinja_env.filters['zip']=zip
 shipping_cost=6.00
 
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = 'akramscarfsup@gmail.com'
+app.config["MAIL_PASSWORD"] = 'Brunel123'
 
 def pull_data():
     cart_items = SQLdb.get_cart_details()
@@ -30,6 +38,7 @@ def pull_data():
 
     return cart_items,temp_list,total,entries
 
+mail.init_app(app)
 
 # Decorators #
 def login_required(func):
@@ -68,11 +77,29 @@ def shop_product_list():
     return render_template('shop-product-list.html', items=cart_items,t_items=temp_list,total=total,entries=entries, products=product_list)
 
 
-@app.route('/contacts')
+@app.route('/contacts', methods=['GET', 'POST'])
 def shop_contacts():
     cart_items, temp_list, total, entries=pull_data()
-    return render_template('shop-contacts.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
+    form = ContactForm()
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('shop-contacts.html', form=form)
+        else:
+            msg = Message(form.subject.data, sender='contact@example.com', recipients=['your_email@example.com'])
+            msg.body = """
+      From: %s &lt;%s&gt;
+      %s
+      """ % (form.name.data, form.email.data, form.message.data)
+            mail.send(msg)
+
+            return render_template('shop-contacts.html', success=True,items=cart_items, t_items=temp_list, total=total, entries=entries)
+
+    elif request.method == 'GET':
+        return render_template('shop-contacts.html', form=form,items=cart_items, t_items=temp_list, total=total, entries=entries)
+    return render_template('shop-contacts.html', items=cart_items, t_items=temp_list, total=total, entries=entries)
 
 @app.route('/account')
 @login_required
@@ -152,17 +179,13 @@ def shop_checkout():
         user_username = request.form['username']
         user_password = request.form['password']
         user_retrieved = SQLdb.get_users(user_username, user_password)
-        # cursor = SQLdb.get_users(user_username, user_password)
 
         if user_retrieved:
-            print("line112:" + str(user_retrieved))
-            # query: cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', ('as', 'as'))
-            #is None for invalid password username
-
 
             session['id'] = user_retrieved[5]
             session['username'] = user_retrieved[0]
             session['logged_in'] = True
+
             return redirect(url_for('shop_main'))
         else:
             error = 'Invalid credentials. Please, try again.'
