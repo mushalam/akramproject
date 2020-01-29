@@ -116,13 +116,9 @@ def get_users(user_email, user_password):
 
 def registeruser(firstname, lastname, email, telephone, password, address1, address2, city, postcode, country):
     try:
-
         message = ""
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
         cursor = connection.cursor()
-
-        cursor.execute('SELECT * FROM tblCustomer')  #todo:debugging
-        list = cursor.fetchall()
 
         # Source of solution: https://stackoverflow.com/a/46020475
         query = """SELECT * FROM tblCustomer WHERE (email) = (%s)"""
@@ -148,10 +144,6 @@ def registeruser(firstname, lastname, email, telephone, password, address1, addr
             #tblAddress ( streetname, streetnumber, postcode, city, country, email, telephone )
             cursor.execute('INSERT INTO tblAddress VALUES (%s, %s, %s, %s, %s, %s, %s )', (address1, address2, postcode, city, country, email, telephone))
             connection.commit()
-
-
-            list = cursor.execute('SELECT * FROM tblCustomer') #todo:debugging
-
 
             message = 'You have successfully registered!'
             print("User registered")

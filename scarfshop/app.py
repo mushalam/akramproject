@@ -234,8 +234,6 @@ def shop_registration():
         ])):
         error = 'Please, fill out the form.'
 
-
-
     return render_template('shop-registration.html', error_reg=error, message=message)
 # End of login and registration #
 
