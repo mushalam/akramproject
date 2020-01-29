@@ -64,7 +64,7 @@ def registeruser(firstname, lastname, email, telephone, password, address1, addr
         message = ""
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
         cursor = connection.cursor()
-        cursor.execute('SELECT * FROM tblCustomers WHERE email = %s', (email))
+        cursor.execute('SELECT * FROM tblCustomer WHERE email = %s', (email))
         account = cursor.fetchone()
         if account:
             message = 'Account already exists!'
@@ -78,7 +78,7 @@ def registeruser(firstname, lastname, email, telephone, password, address1, addr
             message = 'Please fill out the form!'
         else:
             # tblCustomers ( email, password, firstname, lastname, dob, userID )
-            cursor.execute('INSERT INTO tblCustomers VALUES (%s, %s, %s, %s, NULL)', (email, password, firstname, lastname))
+            cursor.execute('INSERT INTO tblCustomer VALUES (%s, %s, %s, %s, "")', (email, password, firstname, lastname)) #todo: NULL vs ""
             connection.commit()
 
             #tblAddress ( streetname, streetnumber, postcode, city, country, email, telephone )
@@ -86,12 +86,19 @@ def registeruser(firstname, lastname, email, telephone, password, address1, addr
             connection.commit()
 
             message = 'You have successfully registered!'
-
+            print("User registered")
             return message
 
     except Error as e:
         print("Error encountered", e)
 
+    finally:
+        try:
+            cursor.close()
+            connection.close()
+            print("MySQL connection is closed")
+        except Error as e:
+            print("No connection exists to the MySQL server.", e)
 
 
 def retrieve_address():

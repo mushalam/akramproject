@@ -120,13 +120,19 @@ def shop_pass_reset():
     cart_items, temp_list, total, entries=pull_data()
     return render_template('forgot-password.html',items=cart_items,t_items=temp_list,total=total,entries=entries)
 
+
+@app.route('/checkout')
+@login_required
+def shop_checkout():
+    return render_template('shop-checkout.html')
+
 # End of routes #
 
 
 # Login, logout, and registration #
-@app.route('/checkout', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 # source: https://codeshack.io/login-system-python-flask-mysql/#creatingtheloginsystem
-def shop_checkout():
+def shop_login():
     cart_items, temp_list, total, entries = pull_data()
     error = None
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
@@ -143,18 +149,18 @@ def shop_checkout():
             # is account is: ('andrew.clarkson@yahoo.com', 'password2', 'Andrew', 'Johnson', datetime.date(1984, 10, 3)) for retrieved
             print(session.keys())
 
-            session['id'] = user_retrieved[5]
+            session['id'] = user_retrieved[4]
             session['username'] = user_retrieved[0]
             session['logged_in'] = True
             return redirect(url_for('shop_main'))
         else:
             error = 'Invalid credentials. Please, try again.'
-    return render_template('shop-checkout.html', error_login=error,items=cart_items,t_items=temp_list,total=total,entries=entries)
+    return render_template('shop-login.html', error_login=error,items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/logout')
 @login_required
-def logout():
+def shop_logout():
     session.pop('id', None)
     session.pop('username', None)
     session.pop('logged_in', None)
@@ -163,15 +169,15 @@ def logout():
 
 
 @app.route('/registration', methods=['GET', 'POST'])
-def registration():
+def shop_registration():
+    error = None
     message = None
     rf = request.form
 
     if ( request.method == 'POST' and all([
         'firstname' in rf, 'lastname' in rf, 'email' in rf, 'telephone' in rf, 'password' in rf,
         'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf,
-        ])
-    ):
+        ])):
         firstname = rf['firstname']
         lastname = rf['lastname']
         email = rf['email']
@@ -188,11 +194,10 @@ def registration():
     elif ( request.method == 'POST' and not any([
         'firstname' in rf, 'lastname' in rf, 'email' in rf, 'telephone' in rf, 'password' in rf,
         'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf
-        ])
-    ):
-        message = 'Please, fill out the form.'
+        ])):
+        error = 'Please, fill out the form.'
 
-    return render_template('shop-checkout.html', error_reg=message)
+    return render_template('shop-registration.html', error_reg=error, message=message)
 # End of login and registration #
 
 

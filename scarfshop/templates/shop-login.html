@@ -1,0 +1,69 @@
+{% extends "/base.html" %}
+
+{% block head %}
+    <title>Login | AkramsScarfs</title>
+{% endblock %}
+
+{% block body %}
+    <body class="ecommerce">
+    <div class="main">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="{{ url_for('shop_main') }}">Home</a></li>
+                <li class="active">Login</li>
+            </ul>
+            <!-- BEGIN SIDEBAR & CONTENT -->
+            <div class="row margin-bottom-40">
+                <!-- BEGIN CONTENT -->
+                <div class="col-md-12 col-sm-12">
+                    <h1>Checkout</h1>
+                    <!-- BEGIN CHECKOUT PAGE -->
+                    <div class="panel-group checkout-page accordion scrollable" id="checkout-page">
+                        <!-- BEGIN CHECKOUT -->
+                        <div id="checkout" class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#checkout-page" href="#checkout-content"
+                                       class="accordion-toggle">
+                                        Step 1: Checkout Options
+                                    </a>
+                                </h2>
+                            </div>
+                            <div id="checkout-content" class="panel-collapse collapse in">
+                                <div class="panel-body row">
+
+                                    <div class="col-md-6 col-sm-6">
+                                        <h3>Returning Customer</h3>
+                                        <p>I am a returning customer.</p>
+
+
+                                        <!-- LOGIN FORM -->
+                                        <form role="form" action="" method="post">
+                                            <div class="form-group">
+                                                <label for="email-login">Email</label>
+                                                <input placeholder="Email" type="text" id="email-login"
+                                                       class="form-control" name="username"
+                                                       value="{{ request.form.email }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password-login">Password</label>
+                                                <input placeholder="Password" type="password" id="password-login"
+                                                       class="form-control" name="password"
+                                                       value="{{ request.form.password }}">
+                                            </div>
+                                            <a href="{{ url_for('shop_pass_reset') }}">Forgotten Password?</a>
+                                            <div class="padding-top-20">
+                                                <input class="btn btn-primary" type="submit" value="Login">
+                                            </div>
+                                            <hr>
+                                        </form>
+                                        {% if error_login %}
+                                            <p class="error"><strong>Error:</strong>{{ error_login }}</p>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END CHECKOUT -->
+{% endblock %}
