@@ -12,7 +12,7 @@ app = Flask(__name__)
 # app = Flask(__name__, template_folder='/scarfshop/templates', static_url_path='/scarfshop/static')
 app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD343644'
 app.jinja_env.filters['zip']=zip
-
+shipping_cost=6.00
 
 def pull_data():
     cart_items = SQLdb.get_cart_details()
@@ -91,7 +91,8 @@ def shop_cart():
 
     #cart_items=SQLdb.get_cart_details()
     cart_items, temp_list, total, entries=pull_data()
-    return render_template('shop-shopping-cart.html',items=cart_items,t_items=temp_list,total=total,entries=entries)
+    total_cost=total+shipping_cost
+    return render_template('shop-shopping-cart.html',items=cart_items,t_items=temp_list,total=total,entries=entries,t_cost=total_cost,ship=shipping_cost)
 
 
 @app.route('/faq')
