@@ -18,12 +18,12 @@
               <!-- BEGIN SIDEBAR -->
               <div class="sidebar col-md-3 col-sm-3">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
-                  <li class="list-group-item clearfix"><a href="{{ url_for('shop_checkout') }}"><i class="fa fa-angle-right"></i> Register</a></li>
+                  <li class="list-group-item clearfix"><a href="{{ url_for('shop_registration') }}"><i class="fa fa-angle-right"></i> Register</a></li>
                   <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Forgot Password</a></li>
                   {% if session['logged_in'] == True %}
                         <li class="list-group-item clearfix"><a href="{{ url_for('shop_account') }}"><i class="fa fa-angle-right"></i> My account</a></li>
                     {% else %}
-                        <li class="list-group-item clearfix"><a href="{{ url_for('shop_checkout') }}"><i class="fa fa-angle-right"></i> My account</a></li>
+                        <li class="list-group-item clearfix"><a href="{{ url_for('shop_login') }}"><i class="fa fa-angle-right"></i> My account</a></li>
                     {% endif %}
 
                 </ul>
@@ -47,7 +47,7 @@
                     <p>You can expect that we will try our best to resolve your issue by making it easy to contact us.  Please fill out the form below and a representative from our team will respond within 5 working days. You may also call our number at 01501203321.</p>
 
                   <!-- BEGIN FORM-->
- <h2>Contact</h2>
+<h2>Contact</h2>
 
   {% if success %}
     <p>Thank you for your message. We'll get back to you shortly.</p>

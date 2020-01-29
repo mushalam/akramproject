@@ -1,7 +1,4 @@
 from __future__ import print_function
-import json
-import os
-from datetime import datetime
 from functools import wraps
 from flask import Flask, render_template, request, url_for, redirect, session, flash
 from jinja2 import Template
@@ -10,7 +7,6 @@ from forms import ContactForm
 from flask_mail import Message, Mail
 
 mail = Mail()
-
 
 app = Flask(__name__)
 # app = Flask(__name__, template_folder='/scarfshop/templates', static_url_path='/scarfshop/static')
@@ -35,7 +31,6 @@ def pull_data():
     for cart_item in cart_items:
         temp_list.append(SQLdb.get_product_by_id(int(cart_item[0])))
     print(temp_list[0])
-
     return cart_items,temp_list,total,entries
 
 mail.init_app(app)
@@ -47,7 +42,7 @@ def login_required(func):
         if 'logged_in' in session:
             return func(*args, **kwargs)
         else:
-            return redirect(url_for('login'))
+            return redirect(url_for('shop_login'))
     return wrap
 # End of decorators #
 
@@ -101,6 +96,7 @@ def shop_contacts():
         return render_template('shop-contacts.html', form=form,items=cart_items, t_items=temp_list, total=total, entries=entries)
     return render_template('shop-contacts.html', items=cart_items, t_items=temp_list, total=total, entries=entries)
 
+
 @app.route('/account')
 @login_required
 def shop_account():
@@ -121,7 +117,6 @@ def shop_cart():
             SQLdb.delete_cart_entry(int(b))
             redirect(url_for('shop_cart'))
 
-
     return render_template('shop-shopping-cart.html',items=cart_items,t_items=temp_list,total=total,entries=entries,t_cost=total_cost,ship=shipping_cost)
 
 
@@ -140,7 +135,7 @@ def shop_about():
 @app.route('/tc')
 def shop_tc():
     cart_items, temp_list, total, entries=pull_data()
-    return render_template('shop-contacts.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
+    return render_template('shop-terms-conditions-page.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/privp')
@@ -166,13 +161,18 @@ def shop_pass_reset():
     cart_items, temp_list, total, entries=pull_data()
     return render_template('forgot-password.html',items=cart_items,t_items=temp_list,total=total,entries=entries)
 
+
+@app.route('/checkout')
+def shop_checkout():
+    return render_template('shop-checkout.html')
+
 # End of routes #
 
 
 # Login, logout, and registration #
-@app.route('/checkout', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 # source: https://codeshack.io/login-system-python-flask-mysql/#creatingtheloginsystem
-def shop_checkout():
+def shop_login():
     cart_items, temp_list, total, entries = pull_data()
     error = None
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
@@ -182,19 +182,18 @@ def shop_checkout():
 
         if user_retrieved:
 
-            session['id'] = user_retrieved[5]
+            session['id'] = user_retrieved[4]
             session['username'] = user_retrieved[0]
             session['logged_in'] = True
-
             return redirect(url_for('shop_main'))
         else:
             error = 'Invalid credentials. Please, try again.'
-    return render_template('shop-checkout.html', error=error,items=cart_items,t_items=temp_list,total=total,entries=entries)
+    return render_template('shop-login.html', error_login=error,items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/logout')
 @login_required
-def logout():
+def shop_logout():
     session.pop('id', None)
     session.pop('username', None)
     session.pop('logged_in', None)
@@ -202,14 +201,39 @@ def logout():
     return redirect(url_for('shop_main'))
 
 
-@app.route('/registration')
-def registration():
-    return render_template('registration.html')
+@app.route('/registration', methods=['GET', 'POST'])
+def shop_registration():
+    error = None
+    message = None
+    rf = request.form
+
+    if ( request.method == 'POST' and all([
+        'firstname' in rf, 'lastname' in rf, 'email' in rf, 'phone' in rf, 'password' in rf,
+        'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf,
+        ])):
+        firstname = rf['firstname']
+        lastname = rf['lastname']
+        email = rf['email']
+        telephone = rf['phone']
+        password = rf['password']
+        address1 = rf['address1']
+        address2 = rf['address2']
+        city = rf['city']
+        postcode = rf['postcode']
+        country = rf['country']
+
+        message = SQLdb.registeruser(firstname, lastname, email, telephone, password, address1, address2, city, postcode, country)
+
+    elif ( request.method == 'POST' and not any([
+        'firstname' in rf, 'lastname' in rf, 'email' in rf, 'telephone' in rf, 'password' in rf,
+        'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf
+        ])):
+        error = 'Please, fill out the form.'
 
 
+
+    return render_template('shop-registration.html', error_reg=error, message=message)
 # End of login and registration #
-
-
 
 
 if __name__ == '__main__':
