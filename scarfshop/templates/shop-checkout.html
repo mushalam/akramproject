@@ -43,13 +43,8 @@
                                                 <input type="radio" name="account" value="guest"> Guest Checkout
                                             </label>
                                         </div>
-                                        <p>By creating an account you will be able to shop faster, be up to date on
-                                            an order's status, and keep track of the orders you have previously
-                                            made.</p>
-                                        <button class="btn btn-primary" type="submit" data-toggle="collapse"
-                                                data-parent="#checkout-page" data-target="#payment-address-content">
-                                            Continue
-                                        </button>
+                                        <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
+                                        <button class="btn btn-primary" type="submit" data-toggle="collapse" data-parent="#checkout-page" data-target="#payment-address-content">Continue</button>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <h3>Returning Customer</h3>
@@ -105,9 +100,7 @@
                             <!-- BEGIN PAYMENT ADDRESS -->
                             <div id="payment-address" class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h2 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#payment-address-content" class="accordion-toggle"> Step 2: Account &amp; Billing Details </a>
-                                    </h2>
+                                    <h2 class="panel-title"><a data-toggle="collapse" data-parent="#checkout-page" href="#payment-address-content" class="accordion-toggle"> Step 2: Account &amp; Billing Details </a></h2>
                                 </div>
                                 <div id="payment-address-content" class="panel-collapse collapse">
                                     <div class="panel-body row">
@@ -187,12 +180,11 @@
                                                     <input type="checkbox" checked="checked"> My delivery and billing addresses are the same.
                                                 </label>
                                             </div>
-                                            <button class="btn btn-primary  pull-right" type="submit" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-address-content" id="button-payment-address"> Continue
+                                            <button class="btn btn-primary  pull-right" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-address-content" id="button-payment-address"> Continue
                                             </button>
                                             <div class="checkbox pull-right">
                                                 <label>
-                                                    <input type="checkbox"> I have read and agree to the <a title="Privacy Policy" href="{{ url_for('shop_privp') }}" target="_blank">Privacy Policy</a> &nbsp;&nbsp;&nbsp;
-                                                </label>
+                                                    <input type="checkbox"> I have read and agree to the <a title="Privacy Policy" href="{{ url_for('shop_privp') }}" target="_blank">Privacy Policy</a> &nbsp;&nbsp;&nbsp;</label>
                                             </div>
                                         </div>
                                     </div>
@@ -203,10 +195,7 @@
                             <!-- BEGIN SHIPPING ADDRESS -->
                             <div id="shipping-address" class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h2 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-address-content" class="accordion-toggle"> Step
-                                            3: Delivery Details </a>
-                                    </h2>
+                                    <h2 class="panel-title"><a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-address-content" class="accordion-toggle"> Step 3: Delivery Details </a></h2>
                                 </div>
                                 <div id="shipping-address-content" class="panel-collapse collapse">
                                     <div class="panel-body row">
@@ -266,9 +255,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <button class="btn btn-primary  pull-right" type="submit" id="button-shipping-address" data-toggle="collapse"
-                                                    data-parent="#checkout-page" data-target="#shipping-method-content">Continue
-                                            </button>
+                                            <button class="btn btn-primary  pull-right" id="button-shipping-address" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-method-content">Continue</button>
                                         </div>
                                     </div>
                                 </div>
@@ -296,9 +283,7 @@
                                                 <label for="delivery-comments">Add Comments About Your Order</label>
                                                 <textarea id="delivery-comments" rows="8" class="form-control"></textarea>
                                             </div>
-                                            <button class="btn btn-primary  pull-right" type="submit" id="button-shipping-method" data-toggle="collapse"
-                                                    data-parent="#checkout-page" data-target="#payment-method-content">Continue
-                                            </button>
+                                            <button class="btn btn-primary  pull-right" id="button-shipping-method" data-toggle="collapse" data-parent="#checkout-page" data-target="#payment-method-content">Continue</button>
                                         </div>
                                     </div>
                                 </div>
@@ -325,9 +310,7 @@
                                                 <label for="delivery-payment-method">Add Comments About Your Order</label>
                                                 <textarea id="delivery-payment-method" rows="8" class="form-control"></textarea>
                                             </div>
-                                            <button class="btn btn-primary  pull-right" type="submit" id="button-payment-method" data-toggle="collapse"
-                                                    data-parent="#checkout-page" data-target="#confirm-content">Continue
-                                            </button>
+                                            <button class="btn btn-primary  pull-right" id="button-payment-method" data-toggle="collapse" data-parent="#checkout-page" data-target="#confirm-content">Continue</button>
                                             <div class="checkbox pull-right">
                                                 <label>
                                                     <input type="checkbox"> I have read and agree to the <a title="Terms & Conditions" href="{{ url_for('shop_tc') }}" target="_blank">Terms & Conditions </a> &nbsp;&nbsp;&nbsp;
