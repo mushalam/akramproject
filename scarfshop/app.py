@@ -122,7 +122,6 @@ def shop_pass_reset():
 
 
 @app.route('/checkout')
-@login_required
 def shop_checkout():
     return render_template('shop-checkout.html')
 
