@@ -2,7 +2,7 @@ import os
 import mysql.connector
 from mysql.connector import Error
 
-db_username = os.environ['USERNAME']
+db_username = os.environ['USERNAME_2']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']
@@ -90,11 +90,4 @@ def retrieve_address():
             print("MySQL connection is closed")
 
 
-def get_cart_details():
-    try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
-        cursor = connection.cursor()
-        cursor.execute('SELECT FROM tblGuestCart')
-        cart_details = cursor.fetchall()
-    except Error as e:
-        return 'Error creating new cart'
+#
