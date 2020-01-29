@@ -20,6 +20,16 @@ def delete_cart_entry(productID):
     except Error as e:
         print( 'Error deleting cart item')
 
+def add_product_to_cart(product):
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
+        cursor = connection.cursor()
+        query='INSERT INTO tblGuestCart VALUES '+str(product)
+        cursor.execute(query)
+        connection.commit()
+    except Error as e:
+        print( 'Error deleting cart item')
+
 
 def update_cart(productID,quantity):
     prod_details = get_product_by_id(productID)
@@ -72,6 +82,15 @@ def get_product_by_id(ProductID):
     except Error as e:
         print( 'Error getting product info')
 
+def get_all_products():
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM tblProduct')
+        product_list = cursor.fetchall()
+        return product_list
+    except Error as e:
+        print( 'Error getting product list')
 
 def get_users(user_email, user_password):
     try:

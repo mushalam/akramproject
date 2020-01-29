@@ -56,10 +56,16 @@ def shop_item():
     return render_template('shop-item.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
-@app.route('/product-list')
+@app.route('/product-list', methods=['POST','GET'])
 def shop_product_list():
     cart_items, temp_list, total, entries=pull_data()
-    return render_template('shop-product-list.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
+    product_list=SQLdb.get_all_products()
+    if request.method=='POST':
+        temp_id=request.form['prodID']
+        prod=SQLdb.get_product_by_id(int(temp_id))
+        SQLdb.add_product_to_cart(prod)
+
+    return render_template('shop-product-list.html', items=cart_items,t_items=temp_list,total=total,entries=entries, products=product_list)
 
 
 @app.route('/contacts')
