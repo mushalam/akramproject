@@ -111,13 +111,10 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN CART -->
                 <div class="top-cart-block">
                     <div class="top-cart-info">
-                        {% set total=0 %}
-                        {% for item in items %}
-                        {% print(item) %}
-                        {% set total=total+item[2] %}
-                        {% endfor %}
 
-                        <a href="javascript:void(0);" class="top-cart-info-count">{{items|length}} items</a>
+
+
+                        <a href="javascript:void(0);" class="top-cart-info-count">{{entries|string}} items</a>
                         <a href="javascript:void(0);" class="top-cart-info-value">£{{total|string}}</a>
                     </div>
                     <i class="fa fa-shopping-cart"></i>

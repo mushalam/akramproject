@@ -47,10 +47,15 @@ def shop_main():
     cart_items = SQLdb.get_cart_details()
     print(cart_items)
     temp_list=[]
+    total=0.00
+    for item in cart_items:
+        total=total+float(item[2])
+    entries=len(cart_items)
     for cart_item in cart_items:
-        temp_list.append(SQLdb.get_product_by_id(cart_item[0]))
-    print(temp_list)
-    return render_template('shop-index.html', items=cart_items,t_items=temp_list)
+        temp_list.append(SQLdb.get_product_by_id(int(cart_item[0])))
+    print(temp_list[0])
+
+    return render_template('shop-index.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/item')

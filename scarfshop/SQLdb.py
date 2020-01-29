@@ -29,7 +29,7 @@ def get_product_by_id(ProductID):
     try:
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port='37306')
         cursor = connection.cursor()
-        cursor.execute('SELECT * FROM tblProduct WHERE productID = %d',(ProductID))
+        cursor.execute('''SELECT * FROM tblProduct WHERE productID = %d''',(ProductID))
         product_details = cursor.fetchall()
         return  product_details
     except Error as e:
@@ -42,7 +42,7 @@ def get_users(user_email, user_password):
         cursor = connection.cursor()
         print("cursor is: " + str(cursor))
         # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', (user_email, user_password))
+        cursor.execute('''SELECT * FROM tblCustomer WHERE email = %s AND password = %s', (user_email, user_password))
         account = cursor.fetchone()
         print("account is: " + str(account))
         return account
