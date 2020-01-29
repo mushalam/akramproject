@@ -22,11 +22,12 @@
                     <th class="goods-page-description">Description</th>
 
                     <th class="goods-page-quantity">Quantity</th>
+                    <th class="goods-page-update"></th>
                     <th class="goods-page-price">Unit price</th>
                     <th class="goods-page-total" colspan="2">Total</th>
                   </tr>
                   {% for item,t_item in items|zip(t_items) %}
-
+                <form id="form{{item[0]|string}}" name="" method="POST">
                   <tr><!-- BEGIN row -->
 
                     <td class="goods-page-image">
@@ -35,22 +36,31 @@
                     <td class="goods-page-description">
                       <h3><a href="javascript:;">{{t_item[1]|string}}</a></h3>
                       <p><strong>ProductID:{{item[0]|string}}</strong> - {{t_item[3]|string}}</p>
+                      <input type="hidden" name="prodID" value="{{item[0]|string}}">
+
 
                     </td>
 
                     <td class="goods-page-quantity">
                       <div class="product-quantity">
-                          <input id="product-quantity" name="quantity" type="text" value="{{item[1]|string}}" readonly class="form-control input-sm" action="/cart" method="POST">
+                          <input id="product-quantity" type="text" name="quantity"  value="{{item[1]|string}}" style="width:50px;">
                       </div>
+                    </td>
+                    <td class="goods-page-update">
+                      <input type="submit" value="update">
                     </td>
                     <td class="goods-page-price">
                       <strong><span>£</span>{{t_item[2]|string}}</strong>
+
                     </td>
                     <td class="goods-page-total">
                       <strong><span>£</span>{{item[2]|string}}</strong>
                     </td>
-                    <td class="del-goods-col"><a class="del-goods" href="javascript:;">&nbsp;</a></td>
+                    <td class="del-goods-col">
+                      <a href="#" class="del-goods"  onclick="document.getElementById('form{{item[0]|string}}').submit();">
+                      &nbsp;</a></td>
                   </tr>
+                </form>
                   {% endfor %}
 
 

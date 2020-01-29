@@ -75,12 +75,18 @@ def shop_account():
     return render_template('shop-account.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
-@app.route('/cart')
+@app.route('/cart', methods=['GET', 'POST'])
 def shop_cart():
     cart_items, temp_list, total, entries=pull_data()
     total_cost=total+shipping_cost
-    if request.method =='POST' and 'quantity' in request.form:
-        print(request.form['quantity'])
+    if request.method =='POST':
+        a=request.form['quantity']
+        b=request.form['prodID']
+        #print(str(a))
+        SQLdb.update_cart(int(b),int(a))
+
+        redirect(url_for('shop_cart'))
+        redirect(url_for('shop_cart'))
     return render_template('shop-shopping-cart.html',items=cart_items,t_items=temp_list,total=total,entries=entries,t_cost=total_cost,ship=shipping_cost)
 
 

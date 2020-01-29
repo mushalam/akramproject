@@ -1,12 +1,35 @@
 import os
 import mysql.connector
 from mysql.connector import Error
+from flask import redirect
 
 db_username = os.environ['USERNAME_2']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']
 port = '37306'
+
+def update_cart(productID,quantity):
+    prod_details = get_product_by_id(productID)
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
+        cursor = connection.cursor()
+        query='UPDATE tblGuestCart SET quan = '+str(quantity)+' WHERE productID = '+str(productID)
+        cursor.execute(query)
+
+        price=float(prod_details[2])
+        total=round(price*quantity,2)
+        query2='UPDATE tblGuestCart SET total = '+str(total)+' WHERE productID = '+str(productID)
+        cursor.execute(query2)
+        cursor.execute('SELECT * FROM tblGuestCart')
+
+        c=cursor.fetchall()
+
+        connection.commit()
+
+        print(str(c))
+    except Error as e:
+        print( 'Error updating cart')
 
 
 def get_cart_details():
