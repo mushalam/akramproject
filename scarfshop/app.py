@@ -14,8 +14,19 @@ app.secret_key = 'AD83nsod3#Qo,c0e3n(CpamwdiN"Lancznpawo.j3eOMAPOM;CAXMALSMD3436
 app.jinja_env.filters['zip']=zip
 
 
-def pull_sqldb(product_id):
-    return SQLdb.get_product_by_id(product_id)
+def pull_data():
+    cart_items = SQLdb.get_cart_details()
+    print(cart_items)
+    temp_list = []
+    total = 0.00
+    for item in cart_items:
+        total = total + float(item[2])
+    entries = len(cart_items)
+    for cart_item in cart_items:
+        temp_list.append(SQLdb.get_product_by_id(int(cart_item[0])))
+    print(temp_list[0])
+
+    return cart_items,temp_list,total,entries
 
 
 # Decorators #
@@ -44,95 +55,85 @@ def login_required(func):
 # Routes #
 @app.route('/', methods=['GET', 'POST'])
 def shop_main():
-    cart_items = SQLdb.get_cart_details()
-    print(cart_items)
-    temp_list=[]
-    total=0.00
-    for item in cart_items:
-        total=total+float(item[2])
-    entries=len(cart_items)
-    for cart_item in cart_items:
-        temp_list.append(SQLdb.get_product_by_id(int(cart_item[0])))
-    print(temp_list[0])
-
+    cart_items, temp_list, total, entries = pull_data()
     return render_template('shop-index.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/item')
 def shop_item():
-    cart_items = SQLdb.get_cart_details()
+    cart_items, temp_list, total, entries=pull_data()
 
-    return render_template('shop-item.html', items=cart_items)
+    return render_template('shop-item.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/product-list')
 def shop_product_list():
-    cart_items = SQLdb.get_cart_details()
+    cart_items, temp_list, total, entries=pull_data()
 
-    return render_template('shop-product-list.html', items=cart_items)
+    return render_template('shop-product-list.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/contacts')
 def shop_contacts():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-contacts.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-contacts.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/account')
 @login_required
 def shop_account():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-account.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-account.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/cart')
 def shop_cart():
 
-    cart_items=SQLdb.get_cart_details()
-
-    return render_template('shop-shopping-cart.html',items=cart_items)
+    #cart_items=SQLdb.get_cart_details()
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-shopping-cart.html',items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/faq')
 def shop_faq():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-faq.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-faq.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/about')
 def shop_about():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-about.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-about.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/tc')
 def shop_tc():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-contacts.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-contacts.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/privp')
 def shop_privp():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-privacy-policy.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-privacy-policy.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/prod-l-w')
 def shop_prod_w():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-product-list-women.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-product-list-women.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/prod-l-k')
 def shop_prod_k():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('shop-product-list-Kids.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('shop-product-list-Kids.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/pass-reset')
 def shop_pass_reset():
-    cart_items = SQLdb.get_cart_details()
-    return render_template('forgot-password.html', items=cart_items)
+    cart_items, temp_list, total, entries=pull_data()
+    return render_template('forgot-password.html',items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 # End of routes #
 
@@ -141,6 +142,7 @@ def shop_pass_reset():
 @app.route('/checkout', methods=['GET', 'POST'])
 # source: https://codeshack.io/login-system-python-flask-mysql/#creatingtheloginsystem
 def shop_checkout():
+    cart_items, temp_list, total, entries = pull_data()
     error = None
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         user_username = request.form['username']
@@ -159,7 +161,7 @@ def shop_checkout():
             return redirect(url_for('shop_main'))
         else:
             error = 'Invalid credentials. Please, try again.'
-    return render_template('shop-checkout.html', error=error)
+    return render_template('shop-checkout.html', error=error,items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 
