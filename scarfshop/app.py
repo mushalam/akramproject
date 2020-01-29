@@ -92,6 +92,8 @@ def shop_cart():
     #cart_items=SQLdb.get_cart_details()
     cart_items, temp_list, total, entries=pull_data()
     total_cost=total+shipping_cost
+    if request.method =='POST' and 'quantity' in request.form:
+        print(request.form['quantity'])
     return render_template('shop-shopping-cart.html',items=cart_items,t_items=temp_list,total=total,entries=entries,t_cost=total_cost,ship=shipping_cost)
 
 
