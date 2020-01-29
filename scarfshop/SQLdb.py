@@ -9,16 +9,41 @@ host = os.environ['HOST']
 port = '37306'
 
 
+def get_cart_details():
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
+        print(connection)
+        cursor = connection.cursor()
+        print(cursor)
+        cursor.execute('SELECT * FROM tblGuestCart')
+        cart_details = cursor.fetchall()
+        print(cart_details)
+        return cart_details
+    except Error as e:
+        print( 'Error getting cart info')
+
+
+def get_product_by_id(ProductID):
+    try:
+        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM tblProduct')
+        product_details = cursor.fetchall()
+
+        for prod in product_details:
+            if prod[0]==int(ProductID):
+                details=prod
+        return  details
+    except Error as e:
+        print( 'Error getting product info')
+
+
 def get_users(user_email, user_password):
     try:
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
-        print(connection)
         cursor = connection.cursor()
-        print("cursor is: " + str(cursor))
-        # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM tblCustomer WHERE email = %s AND password = %s', (user_email, user_password))
         account = cursor.fetchone()
-        print("account is: " + str(account))
         return account
 
     except Error as e:
@@ -62,13 +87,3 @@ def retrieve_address():
             cursor.close()
             connection.close()
             print("MySQL connection is closed")
-
-
-def get_cart_details():
-    try:
-        connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password, port=port)
-        cursor = connection.cursor()
-        cursor.execute('SELECT FROM tblGuestCart')
-        cart_details = cursor.fetchall()
-    except Error as e:
-        return 'Error creating new cart'
