@@ -4,7 +4,7 @@ import mysql.connector
 from mysql.connector import Error
 from flask import redirect
 
-db_username = os.environ['USERNAME']
+db_username = os.environ['USERNAME_2']
 db_password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 host = os.environ['HOST']
