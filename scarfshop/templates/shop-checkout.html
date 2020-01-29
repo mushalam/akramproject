@@ -133,19 +133,19 @@
                                             <h3>Your Password</h3>
                                             <div class="form-group">
                                                 <label for="password">Password <span class="require">*</span></label>
-                                                <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+                                                <input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="password-confirm">Password Confirm <span
                                                         class="require">*</span></label>
-                                                <input type="password" name="password" id="password-confirm" placeholder="Password" class="form-control">
+                                                <input type="password" name="password" id="password-confirm" placeholder="Password" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <h3>Your Address</h3>
                                             <div class="form-group">
                                                 <label for="address1">Address 1</label>
-                                                <input type="text" name="address1" id="address1" placeholder="Address 1" class="form-control">
+                                                <input type="text" name="address1" id="address1" placeholder="Address 1" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="address2">Address 2</label>
@@ -153,16 +153,16 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="city">City <span class="require">*</span></label>
-                                                <input type="text" name="city" id="city" placeholder="City" class="form-control">
+                                                <input type="text" name="city" id="city" placeholder="City" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="post-code">Post Code <span class="require">*</span></label>
-                                                <input type="text" name="postcode" id="post-code" placeholder="Post code" class="form-control">
+                                                <input type="text" name="postcode" id="post-code" placeholder="Post code" class="form-control required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="country">Country <span class="require">*</span></label>
                                                 <select class="form-control input-sm" id="country">
-                                                    <option value=""> --- Please Select ---</option>
+                                                    <option value="" selected> --- Please Select ---</option>
                                                     <option value="244">Aaland Islands</option>
                                                     <option value="1">Afghanistan</option>
                                                     <option value="2">Albania</option>
@@ -172,7 +172,7 @@
                                                 <label for="region-state">Region/State <span
                                                         class="require">*</span></label>
                                                 <select class="form-control input-sm" id="region-state">
-                                                    <option value=""> --- Please Select ---</option>
+                                                    <option value="" selected> --- Please Select ---</option>
                                                     <option value="3513">Aberdeen</option>
                                                     <option value="3514">Aberdeenshire</option>
                                                     <option value="3515">Anglesey</option>
@@ -187,8 +187,7 @@
                                                     <input type="checkbox" checked="checked"> My delivery and billing addresses are the same.
                                                 </label>
                                             </div>
-                                            <button class="btn btn-primary  pull-right" type="submit" data-toggle="collapse" data-parent="#checkout-page"
-                                                    data-target="#shipping-address-content" id="button-payment-address"> Continue
+                                            <button class="btn btn-primary  pull-right" type="submit" data-toggle="collapse" data-parent="#checkout-page" data-target="#shipping-address-content" id="button-payment-address"> Continue
                                             </button>
                                             <div class="checkbox pull-right">
                                                 <label>
@@ -214,50 +213,42 @@
                                         <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label for="firstname-dd">First Name <span class="require">*</span></label>
-                                                <input type="text" id="firstname-dd" class="form-control">
+                                                <input type="text" name="firstname-dd" id="firstname-dd" placeholder="First name" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="lastname-dd">Last Name <span class="require">*</span></label>
-                                                <input type="text" id="lastname-dd" class="form-control">
+                                                <input type="text" name="lastname-dd" id="lastname-dd" placeholder="Last name" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email-dd">E-Mail <span class="require">*</span></label>
-                                                <input type="text" id="email-dd" class="form-control">
+                                                <input type="text" name="email-dd" id="email-dd" placeholder="Email" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="telephone-dd">Telephone <span class="require">*</span></label>
-                                                <input type="text" id="telephone-dd" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="fax-dd">Fax</label>
-                                                <input type="text" id="fax-dd" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="company-dd">Company</label>
-                                                <input type="text" id="company-dd" class="form-control">
+                                                <input type="text" name="telephone-dd" id="telephone-dd" placeholder="Phone number" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label for="address1-dd">Address 1</label>
-                                                <input type="text" id="address1-dd" class="form-control">
+                                                <input type="text" name="address1-dd" id="address1-dd" placeholder="Address 1" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="address2-dd">Address 2</label>
-                                                <input type="text" id="address2-dd" class="form-control">
+                                                <input type="text" name="address2-dd" id="address2-dd" placeholder="Address 2" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="city-dd">City <span class="require">*</span></label>
-                                                <input type="text" id="city-dd" class="form-control">
+                                                <input type="text" name="city-dd" id="city-dd" placeholder="City" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="post-code-dd">Post Code <span class="require">*</span></label>
-                                                <input type="text" id="post-code-dd" class="form-control">
+                                                <input type="text" name="postcode-dd" id="post-code-dd" placeholder="Post code" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="country-dd">Country <span class="require">*</span></label>
                                                 <select class="form-control input-sm" id="country-dd">
-                                                    <option value=""> --- Please Select ---</option>
+                                                    <option value="" selected> --- Please Select ---</option>
                                                     <option value="244">Aaland Islands</option>
                                                     <option value="1">Afghanistan</option>
                                                     <option value="2">Albania</option>
@@ -266,7 +257,7 @@
                                             <div class="form-group">
                                                 <label for="region-state-dd">Region/State <span class="require">*</span></label>
                                                 <select class="form-control input-sm" id="region-state-dd">
-                                                    <option value=""> --- Please Select ---</option>
+                                                    <option value="" selected> --- Please Select ---</option>
                                                     <option value="3513">Aberdeen</option>
                                                     <option value="3514">Aberdeenshire</option>
                                                     <option value="3515">Anglesey</option>
@@ -288,8 +279,7 @@
                             <div id="shipping-method" class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-method-content" class="accordion-toggle"> Step 4:
-                                            Delivery Method</a>
+                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-method-content" class="accordion-toggle"> Step 4: Delivery Method</a>
                                     </h2>
                                 </div>
                                 <div id="shipping-method-content" class="panel-collapse collapse">
@@ -319,8 +309,7 @@
                             <div id="payment-method" class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#payment-method-content" class="accordion-toggle"> Step 5:
-                                            Payment Method </a>
+                                        <a data-toggle="collapse" data-parent="#checkout-page" href="#payment-method-content" class="accordion-toggle"> Step 5: Payment Method </a>
                                     </h2>
                                 </div>
                                 <div id="payment-method-content" class="panel-collapse collapse">
@@ -411,7 +400,7 @@
                                                         <strong class="price"><span>$</span>3.00</strong>
                                                     </li>
                                                     <li>
-                                                        <em>VAT (17.5%)</em>
+                                                        <em>VAT (20.0%)</em>
                                                         <strong class="price"><span>$</span>3.00</strong>
                                                     </li>
                                                     <li class="checkout-total-price">
