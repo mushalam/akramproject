@@ -80,6 +80,10 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                             {% endif %}
 
                             <li><a href="{{ url_for('shop_contacts') }}">Contact us</a></li>
+                            <li><a href="{{ url_for('shop_about') }}">About us</a></li>
+                        <li><a href="{{ url_for('contact') }}">contact form</a></li>
+
+
                             <li><a href="{{ url_for('shop_faq') }}">Help</a></li>
 
                             {% if session['logged_in'] == True %}
@@ -111,32 +115,78 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN CART -->
                 <div class="top-cart-block">
                     <div class="top-cart-info">
-                        {% set total=0 %}
-                        {% for item in items %}
-                        {% print(item) %}
-                        {% set total=total+item[2] %}
-                        {% endfor %}
-
-                        <a href="javascript:void(0);" class="top-cart-info-count">{{items|length}} items</a>
-                        <a href="javascript:void(0);" class="top-cart-info-value">£{{total|string}}</a>
+                        <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
+                        <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
                     </div>
                     <i class="fa fa-shopping-cart"></i>
 
                     <div class="top-cart-content-wrapper">
                         <div class="top-cart-content">
                             <ul class="scroller" style="height: 250px;">
-                                {% for item,t_item in items|zip(t_items)%}
-
                                 <li>
                                     <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
-                                                                              alt={{t_item[1]|string}} width="37" height="34"></a>
-                                    <span class="cart-content-count">{{item[1]|string}}</span>
-                                    <strong><a href="{{ url_for('shop_item') }}">{{t_item[1]|string}}</a></strong>
-                                    <em>{{item[2]|string}}</em>
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
                                     <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                                 </li>
-                                {% endfor %}
-
+                                <li>
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
+                                    <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
+                                    <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
+                                    <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
+                                    <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
+                                    <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
+                                    <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('shop_item') }}"><img src="../static/pages/img/cart-img.jpg"
+                                                                              alt="Rolex Classic Watch" width="37" height="34"></a>
+                                    <span class="cart-content-count">x 1</span>
+                                    <strong><a href="{{ url_for('shop_item') }}">Rolex Classic Watch</a></strong>
+                                    <em>$1230</em>
+                                    <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+                                </li>
                             </ul>
                             <div class="text-right">
                                 <a href="{{ url_for('shop_cart') }}" class="btn btn-default">View Cart</a>
@@ -224,6 +274,8 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                                 <li><a href="{{ url_for('shop_checkout') }}">Checkout</a></li>
                                 <li><a href="{{ url_for('shop_about') }}">About</a></li>
                                 <li><a href="{{ url_for('shop_contacts') }}">Contacts</a></li>
+                                <li><a href="{{ url_for('contact') }}">Contact form</a></li>
+
                                 <li><a href="{{ url_for('shop_account') }}">My account</a></li>
                                 <li><a href="shop-goods-compare.html">Product Comparison</a></li>
                                 <li><a href="shop-standart-forms.html">Standart Forms</a></li>
