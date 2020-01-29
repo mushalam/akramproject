@@ -94,7 +94,7 @@ def shop_about():
 @app.route('/tc')
 def shop_tc():
     cart_items, temp_list, total, entries=pull_data()
-    return render_template('shop-contacts.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
+    return render_template('shop-terms-conditions-page.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/privp')
