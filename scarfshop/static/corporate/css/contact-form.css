@@ -1,4 +1,4 @@
-/*Contact form*/
+/* Contact form */
 form label {
   font-size: 1.2em;
   font-weight: bold;
@@ -51,17 +51,21 @@ form input#submit {
   background-image: linear-gradient(top, #f4f4f4, #e5e5e5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f4f4, endColorstr=#e5e5e5);
 }
 
-form input#submit:hover {
-    cursor: pointer;
-    border: 1px solid #c1c1c1;
-    background-color: #dbdbdb;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dbdbdb), color-stop(100%, #cccccc));
-    background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
-    background-image: -moz-linear-gradient(top, #dbdbdb, #cccccc);
-    background-image: -ms-linear-gradient(top, #dbdbdb, #cccccc);
-    background-image: -o-linear-gradient(top, #dbdbdb, #cccccc);
-    background-image: linear-gradient(top, #dbdbdb, #cccccc);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#dbdbdb, endColorstr=#cccccc);
+form input#submit:hover{
+  cursor: pointer;
+  border:1px solid #c1c1c1;
+  background-color: #dbdbdb;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -moz-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -ms-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -o-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: linear-gradient(top, #dbdbdb, #cccccc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dbdbdb, endColorstr=#cccccc);
+}
 
-
+/* Message flashing */
+.flash {
+  background-color: #FBB0B0;
+  padding: 10px;
+  width: 400px;
 }
