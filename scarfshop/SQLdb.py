@@ -78,7 +78,7 @@ def registeruser(firstname, lastname, email, telephone, password, address1, addr
             message = 'Please fill out the form!'
         else:
             # tblCustomers ( email, password, firstname, lastname, dob, userID )
-            cursor.execute('INSERT INTO tblCustomers VALUES (%s, %s, %s, %s, NULL)', (email, password, firstname, lastname, userID))
+            cursor.execute('INSERT INTO tblCustomers VALUES (%s, %s, %s, %s, NULL)', (email, password, firstname, lastname))
             connection.commit()
 
             #tblAddress ( streetname, streetnumber, postcode, city, country, email, telephone )
@@ -87,11 +87,10 @@ def registeruser(firstname, lastname, email, telephone, password, address1, addr
 
             message = 'You have successfully registered!'
 
-        return message
+            return message
 
-
-
-    except
+    except Error as e:
+        print("Error encountered", e)
 
 
 
