@@ -51,19 +51,15 @@ def shop_product_list():
     return render_template('shop-product-list.html')
 
 
-@app.route('/contacts')
+
+@app.route('/contacts', methods=['GET', 'POST'])
 def shop_contacts():
-    return render_template('shop-contacts.html')
-
-
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
     form = ContactForm()
 
     if request.method == 'POST':
         if form.validate() == False:
             flash('All fields are required.')
-            return render_template('contact.html', form=form)
+            return render_template('shop-contacts.html', form=form)
         else:
             msg = Message(form.subject.data, sender='contact@example.com', recipients=['your_email@example.com'])
             msg.body = """
@@ -72,10 +68,10 @@ def contact():
       """ % (form.name.data, form.email.data, form.message.data)
             mail.send(msg)
 
-            return render_template('contact.html', success=True)
+            return render_template('shop-contacts.html', success=True)
 
     elif request.method == 'GET':
-        return render_template('contact.html', form=form)
+        return render_template('shop-contacts.html', form=form)
 
 
 @app.route('/account')

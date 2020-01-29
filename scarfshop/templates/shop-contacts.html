@@ -47,23 +47,60 @@
                     <p>You can expect that we will try our best to resolve your issue by making it easy to contact us.  Please fill out the form below and a representative from our team will respond within 5 working days. You may also call our number at 01501203321.</p>
 
                   <!-- BEGIN FORM-->
-                  <form action="#" class="default-form" role="form">
+ <h2>Contact</h2>
+
+  {% if success %}
+    <p>Thank you for your message. We'll get back to you shortly.</p>
+
+  {% else %}
+
+    {% for message in form.name.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.email.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.subject.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.message.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+      <form action="{{ url_for('shop_contacts') }}" class="default-form" role="form" method=post >
+       {{ form.hidden_tag() }}
                     <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" class="form-control" id="name">
+                        {{ form.name.label }}
+                        {{ form.name(class_="form-control") }}
                     </div>
                     <div class="form-group">
-                      <label for="email">Email <span class="require">*</span></label>
-                      <input type="text" class="form-control" id="email">
+                        {{ form.email.label }}
+                         <label for=":">Email <span class="require">*</span></label>
+                        {{ form.email(class_="form-control") }}
+
                     </div>
                     <div class="form-group">
-                      <label for="message">Message</label>
-                      <textarea class="form-control" rows="8" id="message"></textarea>
+                       {{ form.subject.label }}
+
+                        {{ form.subject(class_="form-control")  }}
                     </div>
-                    <div class="padding-top-20">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+
+                     <div class="form-group">
+                        {{ form.message.label }}
+                         {{ form.message(class_="form-control") }}
+                     </div>
+
+
+      <div class="padding-top-20">
+
+          {{ form.submit(class_="btn btn-primary") }}
+          {% endif %}
                     </div>
                   </form>
+
                   <!-- END FORM-->
                 </div>
               </div>
@@ -73,4 +110,5 @@
           </div>
         </div>
     </body>
+
 {% endblock %}
