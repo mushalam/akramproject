@@ -165,7 +165,8 @@ def shop_pass_reset():
 @app.route('/checkout', methods=['POST','GET'])
 def shop_checkout():
     cart_items, temp_list, total, entries = pull_data()
-    return render_template('shop-checkout.html', items=cart_items, t_items=temp_list, total=total, entries=entries)
+    total_cost = total + shipping_cost
+    return render_template('shop-checkout.html', items=cart_items, t_items=temp_list, total=total, entries=entries,t_cost=total_cost,ship=shipping_cost)
 
 
 

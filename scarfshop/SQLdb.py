@@ -22,10 +22,11 @@ def delete_cart_entry(productID):
         print( 'Error deleting cart item')
 
 def add_product_to_cart(product):
+    cart_product=product[0],1,product[2]
     try:
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
         cursor = connection.cursor()
-        query='INSERT INTO tblGuestCart VALUES ( '+str(product)+')'
+        query='INSERT INTO tblGuestCart () VALUES '+str(cart_product)
         cursor.execute(query)
         connection.commit()
     except Error as e:
