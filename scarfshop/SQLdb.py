@@ -28,7 +28,7 @@ def add_product_to_cart(product):
         cursor.execute(query)
         connection.commit()
     except Error as e:
-        print( 'Error deleting cart item')
+        print( 'Error adding product to cart')
 
 
 def update_cart(productID,quantity):
