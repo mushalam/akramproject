@@ -127,6 +127,8 @@ def shop_checkout():
 @app.route('/logout')
 @login_required
 def logout():
+    session.pop('id', None)
+    session.pop('username', None)
     session.pop('logged_in', None)
     session.clear()
     return redirect(url_for('shop_main'))
