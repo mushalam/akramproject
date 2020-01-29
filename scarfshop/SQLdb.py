@@ -24,7 +24,7 @@ def add_product_to_cart(product):
     try:
         connection = mysql.connector.connect(host=host, database=database, user=db_username, password=db_password,port=port)
         cursor = connection.cursor()
-        query='INSERT INTO tblGuestCart VALUES '+str(product)
+        query='INSERT INTO tblGuestCart VALUES ( '+str(product)+')'
         cursor.execute(query)
         connection.commit()
     except Error as e:
