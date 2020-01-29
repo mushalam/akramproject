@@ -33,7 +33,7 @@ def login_required(func):
         if 'logged_in' in session:
             return func(*args, **kwargs)
         else:
-            return redirect(url_for('login'))
+            return redirect(url_for('shop_login'))
     return wrap
 # End of decorators #
 
@@ -175,13 +175,13 @@ def shop_registration():
     rf = request.form
 
     if ( request.method == 'POST' and all([
-        'firstname' in rf, 'lastname' in rf, 'email' in rf, 'telephone' in rf, 'password' in rf,
+        'firstname' in rf, 'lastname' in rf, 'email' in rf, 'phone' in rf, 'password' in rf,
         'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf,
         ])):
         firstname = rf['firstname']
         lastname = rf['lastname']
         email = rf['email']
-        telephone = rf['telephone']
+        telephone = rf['phone']
         password = rf['password']
         address1 = rf['address1']
         address2 = rf['address2']
@@ -196,6 +196,8 @@ def shop_registration():
         'address1' in rf, 'address2' in rf, 'city' in rf, 'postcode' in rf, 'country' in rf
         ])):
         error = 'Please, fill out the form.'
+
+
 
     return render_template('shop-registration.html', error_reg=error, message=message)
 # End of login and registration #

@@ -75,7 +75,13 @@
                 </div>
               </div>
               <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
-              <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>
+              <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i>
+                {% if session['logged_in'] == True %}
+                    <a href="{{ url_for('shop_cart') }}"></a>
+                {% else %}
+                    <a href="{{ url_for('shop_login') }}"></a>
+                {% endif %}
+              </button>
             </div>
           </div>
           <!-- END CONTENT -->
