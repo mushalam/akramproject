@@ -123,6 +123,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                     <div class="top-cart-content-wrapper">
                         <div class="top-cart-content">
                             <ul class="scroller" style="height: 250px;">
+                                {% if items|length < 1 %}
+                                <span>No items to show</span>
+                                {% else %}
                                 {% for item,t_item in items|zip(t_items)%}
 
                                 <li>
@@ -133,6 +136,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                                     <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                                 </li>
                                 {% endfor %}
+                                {% endif %}
 
                             </ul>
                             <div class="text-right">

@@ -30,7 +30,7 @@ def pull_data():
     entries = len(cart_items)
     for cart_item in cart_items:
         temp_list.append(SQLdb.get_product_by_id(int(cart_item[0])))
-    print(temp_list[0])
+
     return cart_items,temp_list,total,entries
 
 mail.init_app(app)
@@ -111,7 +111,7 @@ def shop_cart():
     if request.method =='POST':
         a=request.form['quantity']
         b=request.form['prodID']
-        #print(str(a))
+
         SQLdb.update_cart(int(b),int(a))
         if request.form['del']=='true':
             SQLdb.delete_cart_entry(int(b))
