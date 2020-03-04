@@ -144,16 +144,16 @@ def shop_privp():
     return render_template('shop-privacy-policy.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
-@app.route('/prod-l-w')
-def shop_prod_w():
-    cart_items, temp_list, total, entries=pull_data()
-    return render_template('shop-product-list-women.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
+# @app.route('/prod-l-w')
+# def shop_prod_w():
+#     cart_items, temp_list, total, entries=pull_data()
+#     return render_template('shop-product-list-women.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
-@app.route('/prod-l-k')
-def shop_prod_k():
-    cart_items, temp_list, total, entries=pull_data()
-    return render_template('shop-product-list-Kids.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
+# @app.route('/prod-l-k')
+# def shop_prod_k():
+#     cart_items, temp_list, total, entries=pull_data()
+#     return render_template('shop-product-list-Kids.html', items=cart_items,t_items=temp_list,total=total,entries=entries)
 
 
 @app.route('/pass-reset')
