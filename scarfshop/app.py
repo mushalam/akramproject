@@ -83,9 +83,9 @@ def shop_contacts():
             flash('All fields are required.')
             return render_template('shop-contacts.html', form=form)
         else:
-            msg = Message(form.subject.data, sender='contact@example.com', recipients=['your_email@example.com'])
+            msg = Message(form.subject.data, sender='scarfshp@csplunk.com', recipients=['your_email@example.com'])
             msg.body = """
-      From: %s &lt;%s&gt;
+      From: %s %s;
       %s
       """ % (form.name.data, form.email.data, form.message.data)
             mail.send(msg)
